@@ -1,17 +1,18 @@
 {
   "variables": {
     "aws_access_key": "",
-    "aws_secret_key": ""
+    "aws_secret_key": "",
+    "aws_region": ""
   },
   "builders": [{
     "type": "amazon-ebs",
     "access_key": "{{user `aws_access_key`}}",
     "secret_key": "{{user `aws_secret_key`}}",
-    "region": "eu-central-1",
+    "region": "{{user `var.aws_region`}}",
     "source_ami": "ami-074a2642e2a3737d2",
     "instance_type": "t2.micro",
     "ssh_username": "ubuntu",
-    "ami_name": "dev-instance {{timestamp}}"
+    "ami_name": "dev-instance-{{timestamp}}"
   }],
   "provisioners": [{
     "type": "shell",
