@@ -1,0 +1,32 @@
+sudo apt update
+sudo apt-get -y install python-pip python-dev libffi-dev libssl-dev
+pip install ansible
+pip install ansible --user
+echo 'PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+ansible --version
+#sudo apt install ansible
+#sudo apt install ansible-lint
+cd /mnt/e/IdeaProjects
+mkdir ansible_test
+cd ansible_test/
+
+touch test.yml
+  ---
+  - hosts: localhost
+    tasks:
+      - debug: msg="Ansible is working!"
+ls -ltra /etc/ansible/hosts
+cat /etc/ansible/hosts
+echo "localhost" | sudo tee -a /etc/ansible/hosts > /dev/null
+ansible-playbook test.yml --connection=local
+
+touch hosts site.yml
+mkdir roles/
+cd roles/
+ansible-galaxy init admin
+ansible-playbook site.yml
+ansible-playbook site.yml --connection=local
+ansible-playbook site.yml --check
+ansible-playbook site.yml --syntax-check
+ansible-lint -x $(echo $(ansible-lint -L | awk -F':' '{print $1}' | grep '^[^ ]') | tr ' ' ',') site.yml
+http://www.yamllint.com/
