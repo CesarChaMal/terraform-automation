@@ -20,7 +20,7 @@
         "--connection=local",
         "-vvvv"
      ],
-    "playbook_file": "ansible/playbook.yml",
+    "playbook_file": "ansible/main.yml",
     "pause_before": "10s"
   }]
 }
