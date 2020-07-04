@@ -25,7 +25,7 @@
 #      shell: "add-apt-repository ppa:deadsnakes/ppa"
 
     - name: Add hostname to hostfile
-      shell: "echo '127.0.0.1 $(hostname)' >> /etc/hosts"
+      shell: "echo \"127.0.0.1 $(hostname)\" >> /etc/hosts"
 
     - name: Install nginx
       apt:
@@ -56,8 +56,14 @@
         dest: "/etc/nginx/conf.d/localhost.conf"
         mode: 0644
 
+    - name: Update static nginx config
+      copy: 
+        src: "./files/static_website.conf"
+        dest: "/etc/nginx/sites-available/localhost"
+        mode: 0644
+
     - name: Start Nginx
-      service: name=nginx state=started enabled=yes
+      service: name=nginx state=restarted enabled=yes
       
 #    - name: Reboot the box if kernel updated
 #      reboot:

@@ -11,3 +11,4 @@ chmod +x prod-ssh/scripts/install_software.sh
 sudo -- sh -c -e echo -e '127.0.0.1 $(hostname)' >> /etc/hosts
 sudo echo '127.0.0.1 $(hostname)' >> /etc/hosts
 terraform init && terraform apply -auto-approve
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/localhost
