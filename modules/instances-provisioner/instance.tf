@@ -13,7 +13,7 @@ resource "aws_instance" "instance" {
 
   provisioner "file" {
     source      = var.PATH_SCRIPT
-    destination = "/tmp/script.sh"
+    destination = "/tmp/install_software.sh"
   }
 
   provisioner "remote-exec" {

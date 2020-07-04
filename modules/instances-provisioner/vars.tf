@@ -21,7 +21,7 @@ variable "PATH_TO_PUBLIC_KEY" {
 }
 
 variable "PATH_SCRIPT" {
-  default = "scripts/script.sh"
+  default = "scripts/install_software.sh"
 }
 
 variable "INSTANCE_USERNAME" {
