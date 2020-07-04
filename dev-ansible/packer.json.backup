@@ -14,22 +14,13 @@
     "ssh_username": "ubuntu",
     "ami_name": "dev-instance-{{timestamp}}"
   }],
-  "provisioners": [
-   {
-     "type": "shell",
-     "inline": [
-       "sleep 20",
-       "sudo apt-get update",
-       "sudo apt-get install python-simplejson -yq",
-       "sudo apt-get install python -yq"
-     ]
-   },
-   {
+  "provisioners": [{
     "type": "ansible",
 	"extra_arguments": [
+	"--connection=local",
+        "-vvvv"
      ],
     "playbook_file": "ansible/main.yml",
     "pause_before": "10s"
-   }
-  ]
+  }]
 }
