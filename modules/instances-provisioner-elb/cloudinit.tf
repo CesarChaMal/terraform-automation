@@ -1,5 +1,5 @@
 data "template_file" "script" {
-  template = file("${var.PATH_SCRIPT}")
+  template = file(var.PATH_SCRIPT)
   vars = {
     VERSION = var.VERSION
   }
