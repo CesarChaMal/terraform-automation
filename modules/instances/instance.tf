@@ -8,6 +8,8 @@ resource "aws_instance" "instance" {
   # the security group
   vpc_security_group_ids = [aws_security_group.allow-ssh.id, aws_security_group.nginx.id]
 
+  user_data = "#!/bin/bash\nsudo echo \"127.0.0.1 $(hostname)\" >> /etc/hosts"
+
   # the public SSH key
   key_name = aws_key_pair.mykeypair.key_name
 
