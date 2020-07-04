@@ -2,3 +2,12 @@ ansible-playbook ansible/main.yml --connection=local
 ansible-playbook ansible/main.yml --syntax-check
 packer build -machine-readable packer.json
 sudo apt-get purge -y nginx nginx-common
+chmod +x dev-ssh-elb/scripts/install_software.sh
+chmod +x itg-ssh-elb/scripts/install_software.sh
+chmod +x prod-ssh-elb/scripts/install_software.sh
+chmod +x dev-ssh/scripts/install_software.sh
+chmod +x itg-ssh/scripts/install_software.sh
+chmod +x prod-ssh/scripts/install_software.sh
+sudo -- sh -c -e echo -e '127.0.0.1 $(hostname)' >> /etc/hosts
+sudo echo '127.0.0.1 $(hostname)' >> /etc/hosts
+terraform init && terraform apply -auto-approve
