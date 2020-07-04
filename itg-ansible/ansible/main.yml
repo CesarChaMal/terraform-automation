@@ -16,16 +16,17 @@
 
     - name: Add PPA for Nginx.
       apt_repository:
-        repo: 'ppa:deadsnakes/ppa'
+#        repo: 'ppa:deadsnakes/ppa'
+        repo: 'ppa:nginx/stable'
         state: present
         update_cache: true
       register: nginx_ppa_added
 
 #    - name: Add repository of nginx
-#      shell: "add-apt-repository ppa:deadsnakes/ppa"
+#      shell: "add-apt-repository ppa:nginx/stable"
 
     - name: Add hostname to hostfile
-      shell: "echo '127.0.0.1 $(hostname)' >> /etc/hosts"
+      shell: "echo \"127.0.0.1 $(hostname)\" >> /etc/hosts"
 
     - name: Install nginx
       apt:
@@ -41,7 +42,7 @@
 
 
     - name: Start Nginx
-      service: name=nginx state=started enabled=yes
+      service: name=nginx state=restarted enabled=yes
       
 #    - name: Reboot the box if kernel updated
 #      reboot:
