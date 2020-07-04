@@ -6,6 +6,10 @@ variable "AWS_REGION" {
   default = "eu-central-1"
 }
 
+variable "ENV" {
+  default = "itg"
+}
+
 variable "AMIS" {
   type = map(string)
   default = {
