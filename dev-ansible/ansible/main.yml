@@ -57,12 +57,6 @@
         dest: "/etc/nginx/conf.d/localhost.conf"
         mode: 0644
 
-    - name: Update static nginx config
-      copy: 
-        src: "./files/static_website.conf"
-        dest: "/etc/nginx/sites-available/localhost"
-        mode: 0644
-
     - name: Start Nginx
       service: name=nginx state=restarted enabled=yes
       
