@@ -33,28 +33,28 @@
         state: latest
         update_cache: true
 
-    - name: Copy nginx config files
-      copy:
-        src: "./files/nginx.conf"
-        dest: "/etc/nginx/nginx.conf"
-        mode: 0644
+#    - name: Copy nginx config files
+#      copy:
+#        src: "./files/nginx.conf"
+#        dest: "/etc/nginx/nginx.conf"
+#        mode: 0644
 
-    - name: Creates directory
-      file: 
-        path: "/var/www/localhost"
-        state: directory
+#    - name: Creates directory
+#      file: 
+#        path: "/var/www/localhost"
+#        state: directory
 
-    - name: Copy static files
-      copy:
-        src: "./files/static_website/"
-        dest: "/var/www/localhost/"
-        mode: 0644
+#    - name: Copy static files
+#      copy:
+#        src: "./files/static_website/"
+#        dest: "/var/www/localhost/"
+#        mode: 0644
 
-    - name: Update static nginx config
-      copy: 
-        src: "./files/static_website.conf"
-        dest: "/etc/nginx/conf.d/localhost.conf"
-        mode: 0644
+#    - name: Update static nginx config
+#      copy: 
+#        src: "./files/static_website.conf"
+#        dest: "/etc/nginx/conf.d/localhost.conf"
+#        mode: 0644
       
-    - name: Start Nginx
+    - name: Start nginx
       service: name=nginx state=started 
