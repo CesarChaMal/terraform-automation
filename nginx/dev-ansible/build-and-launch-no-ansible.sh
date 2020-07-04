@@ -8,4 +8,4 @@ S3_BUCKET=`aws s3 ls --region $AWS_REGION | grep terraform-state |tail -n1 |cut 
 aws s3 cp amivar-dev.tf s3://${S3_BUCKET}/amivar-dev.tf --region $AWS_REGION
 sed -i 's/#//g' backend.tf
 
-terraform init
+terraform init -force-copy
