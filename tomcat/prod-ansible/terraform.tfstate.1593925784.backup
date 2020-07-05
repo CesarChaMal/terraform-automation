@@ -706,7 +706,7 @@
             "instance_type": "t2.micro",
             "ipv6_address_count": 0,
             "ipv6_addresses": [],
-            "key_name": "mykeypair-nginx-prod",
+            "key_name": "mykeypair-tomcat-prod",
             "metadata_options": [
               {
                 "http_endpoint": "enabled",
@@ -741,9 +741,9 @@
             "source_dest_check": true,
             "subnet_id": "subnet-0d3efd070f83b19a0",
             "tags": {
-              "Application": "nginx",
+              "Application": "tomcat",
               "Environmnent": "prod",
-              "Name": "nginx-prod-instance"
+              "Name": "tomcat-prod-instance"
             },
             "tenancy": "default",
             "timeouts": null,
@@ -759,7 +759,7 @@
           "dependencies": [
             "module.instances.aws_key_pair.mykeypair",
             "module.instances.aws_security_group.allow-ssh",
-            "module.instances.aws_security_group.nginx",
+            "module.instances.aws_security_group.tomcat",
             "module.main-vpc.module.main-vpc.aws_subnet.public",
             "module.main-vpc.module.main-vpc.aws_vpc.this",
             "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
@@ -783,9 +783,9 @@
             "id": "igw-05b13a394d5147a03",
             "owner_id": "774145483743",
             "tags": {
-              "Application": "nginx",
+              "Application": "tomcat",
               "Environment": "prod",
-              "Name": "vpc-nginx-prod",
+              "Name": "vpc-tomcat-prod",
               "Terraform": "true"
             },
             "vpc_id": "vpc-010565de59b5d78c8"
@@ -808,10 +808,10 @@
         {
           "schema_version": 1,
           "attributes": {
-            "arn": "arn:aws:ec2:eu-central-1:774145483743:key-pair/mykeypair-nginx-prod",
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:key-pair/mykeypair-tomcat-prod",
             "fingerprint": "a2:bb:38:ec:09:11:b1:b3:f7:b1:1c:98:67:fb:00:e6",
-            "id": "mykeypair-nginx-prod",
-            "key_name": "mykeypair-nginx-prod",
+            "id": "mykeypair-tomcat-prod",
+            "key_name": "mykeypair-tomcat-prod",
             "key_name_prefix": null,
             "key_pair_id": "key-0e0f47f4996e722b5",
             "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDGa8Xycp78U1IUrzG4ly+lP9uV8fw3uWe0nZaTV35WX6YIekDCfJi0rARYGMGRl0sGe7lqKS3BPw5vig2jgJxc0s9+CeHIbEMf0KH1NiU9xcIbTlrTmyeQdNkdYZmkt6DCm5jXYpTMC9riRJxyP6t0MnrVWOy8ZX5sl/UHxBvLlAh6DGKlLswYbOT11uNKp1LiZo3O7MgB22OBMzXWCLQX8JKZyG/xsm+GNMAW0G4knYw8HMN4eD9bRvMiJFE8VUDYIDkvNl6yW5sMIiOrwPPkoEqTOHoLNv4esyOHuHFOpMNwH4JXJ8KQzYMEXOTQN8Oykg+KQrBrfGP78tOtbGIEU8eXWtm+TJJGX7X74NSPdm3I/Q/n4OVDi60UiapcLtrt/WLsemTnYtFQvqJxyI8/R1rx8Sgka/UtTsrtPWsQ/rlVoUhd07AJRVwN61WDPs+o5SOq28hyn82QjHBzHBk9VwxUNt3+4mDbt1nuiUC618PyMO2Xfz7LXfAo/qRqeS0= Cesar@RAZERBLADE14",
@@ -1141,9 +1141,9 @@
             "propagating_vgws": [],
             "route": [],
             "tags": {
-              "Application": "nginx",
+              "Application": "tomcat",
               "Environment": "prod",
-              "Name": "vpc-nginx-prod-private-eu-central-1a",
+              "Name": "vpc-tomcat-prod-private-eu-central-1a",
               "Terraform": "true"
             },
             "vpc_id": "vpc-010565de59b5d78c8"
@@ -1163,9 +1163,9 @@
             "propagating_vgws": [],
             "route": [],
             "tags": {
-              "Application": "nginx",
+              "Application": "tomcat",
               "Environment": "prod",
-              "Name": "vpc-nginx-prod-private-eu-central-1b",
+              "Name": "vpc-tomcat-prod-private-eu-central-1b",
               "Terraform": "true"
             },
             "vpc_id": "vpc-010565de59b5d78c8"
@@ -1185,9 +1185,9 @@
             "propagating_vgws": [],
             "route": [],
             "tags": {
-              "Application": "nginx",
+              "Application": "tomcat",
               "Environment": "prod",
-              "Name": "vpc-nginx-prod-private-eu-central-1c",
+              "Name": "vpc-tomcat-prod-private-eu-central-1c",
               "Terraform": "true"
             },
             "vpc_id": "vpc-010565de59b5d78c8"
@@ -1217,9 +1217,9 @@
             "propagating_vgws": [],
             "route": [],
             "tags": {
-              "Application": "nginx",
+              "Application": "tomcat",
               "Environment": "prod",
-              "Name": "vpc-nginx-prod-public",
+              "Name": "vpc-tomcat-prod-public",
               "Terraform": "true"
             },
             "vpc_id": "vpc-010565de59b5d78c8"
@@ -1419,16 +1419,16 @@
           "attributes": {
             "acceleration_status": "",
             "acl": "private",
-            "arn": "arn:aws:s3:::terraform-state-nginx-prod-a286129",
-            "bucket": "terraform-state-nginx-prod-a286129",
-            "bucket_domain_name": "terraform-state-nginx-prod-a286129.s3.amazonaws.com",
+            "arn": "arn:aws:s3:::terraform-state-tomcat-prod-a286129",
+            "bucket": "terraform-state-tomcat-prod-a286129",
+            "bucket_domain_name": "terraform-state-tomcat-prod-a286129.s3.amazonaws.com",
             "bucket_prefix": null,
-            "bucket_regional_domain_name": "terraform-state-nginx-prod-a286129.s3.eu-central-1.amazonaws.com",
+            "bucket_regional_domain_name": "terraform-state-tomcat-prod-a286129.s3.eu-central-1.amazonaws.com",
             "cors_rule": [],
             "force_destroy": true,
             "grant": [],
             "hosted_zone_id": "Z21DNDUVLTQW6Q",
-            "id": "terraform-state-nginx-prod-a286129",
+            "id": "terraform-state-tomcat-prod-a286129",
             "lifecycle_rule": [],
             "logging": [],
             "object_lock_configuration": [],
@@ -1519,14 +1519,14 @@
       "module": "module.instances",
       "mode": "managed",
       "type": "aws_security_group",
-      "name": "nginx",
+      "name": "tomcat",
       "provider": "provider.aws",
       "instances": [
         {
           "schema_version": 1,
           "attributes": {
             "arn": "arn:aws:ec2:eu-central-1:774145483743:security-group/sg-07946c732dccedad9",
-            "description": "security group that allows web traffic for nginx",
+            "description": "security group that allows web traffic for tomcat",
             "egress": [
               {
                 "cidr_blocks": [
@@ -1558,13 +1558,13 @@
                 "to_port": 80
               }
             ],
-            "name": "nginx-prod",
+            "name": "tomcat-prod",
             "name_prefix": null,
             "owner_id": "774145483743",
             "revoke_rules_on_delete": false,
             "tags": {
               "Environmnent": "prod",
-              "Name": "nginx"
+              "Name": "tomcat"
             },
             "timeouts": null,
             "vpc_id": "vpc-010565de59b5d78c8"
@@ -1627,9 +1627,9 @@
             "outpost_arn": "",
             "owner_id": "774145483743",
             "tags": {
-              "Application": "nginx",
+              "Application": "tomcat",
               "Environment": "prod",
-              "Name": "vpc-nginx-prod-private-eu-central-1a",
+              "Name": "vpc-tomcat-prod-private-eu-central-1a",
               "Terraform": "true"
             },
             "timeouts": null,
@@ -1657,9 +1657,9 @@
             "outpost_arn": "",
             "owner_id": "774145483743",
             "tags": {
-              "Application": "nginx",
+              "Application": "tomcat",
               "Environment": "prod",
-              "Name": "vpc-nginx-prod-private-eu-central-1b",
+              "Name": "vpc-tomcat-prod-private-eu-central-1b",
               "Terraform": "true"
             },
             "timeouts": null,
@@ -1687,9 +1687,9 @@
             "outpost_arn": "",
             "owner_id": "774145483743",
             "tags": {
-              "Application": "nginx",
+              "Application": "tomcat",
               "Environment": "prod",
-              "Name": "vpc-nginx-prod-private-eu-central-1c",
+              "Name": "vpc-tomcat-prod-private-eu-central-1c",
               "Terraform": "true"
             },
             "timeouts": null,
@@ -1727,9 +1727,9 @@
             "outpost_arn": "",
             "owner_id": "774145483743",
             "tags": {
-              "Application": "nginx",
+              "Application": "tomcat",
               "Environment": "prod",
-              "Name": "vpc-nginx-prod-public-eu-central-1a",
+              "Name": "vpc-tomcat-prod-public-eu-central-1a",
               "Terraform": "true"
             },
             "timeouts": null,
@@ -1757,9 +1757,9 @@
             "outpost_arn": "",
             "owner_id": "774145483743",
             "tags": {
-              "Application": "nginx",
+              "Application": "tomcat",
               "Environment": "prod",
-              "Name": "vpc-nginx-prod-public-eu-central-1b",
+              "Name": "vpc-tomcat-prod-public-eu-central-1b",
               "Terraform": "true"
             },
             "timeouts": null,
@@ -1787,9 +1787,9 @@
             "outpost_arn": "",
             "owner_id": "774145483743",
             "tags": {
-              "Application": "nginx",
+              "Application": "tomcat",
               "Environment": "prod",
-              "Name": "vpc-nginx-prod-public-eu-central-1c",
+              "Name": "vpc-tomcat-prod-public-eu-central-1c",
               "Terraform": "true"
             },
             "timeouts": null,
@@ -1842,9 +1842,9 @@
             "main_route_table_id": "rtb-03d0ef62a69317996",
             "owner_id": "774145483743",
             "tags": {
-              "Application": "nginx",
+              "Application": "tomcat",
               "Environment": "prod",
-              "Name": "vpc-nginx-prod",
+              "Name": "vpc-tomcat-prod",
               "Terraform": "true"
             }
           },

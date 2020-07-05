@@ -1,10 +1,10 @@
-user nginx;
+user jboss;
 worker_processes auto;
-pid /var/run/nginx.pid;
-error_log /var/log/nginx/error.log;
+pid /var/run/jboss.pid;
+error_log /var/log/jboss/error.log;
 
-# Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.
-include /usr/share/nginx/modules/*.conf;
+# Load dynamic modules. See /usr/share/doc/jboss/README.dynamic.
+include /usr/share/jboss/modules/*.conf;
 
 events {
     worker_connections 1024;
@@ -15,7 +15,7 @@ http {
                       '$status $body_bytes_sent "$http_referer" '
                       '"$http_user_agent" "$http_x_forwarded_for"';
 
-    access_log  /var/log/nginx/access.log  main;
+    access_log  /var/log/jboss/access.log  main;
 
     sendfile            on;
     tcp_nopush          on;
@@ -23,13 +23,13 @@ http {
     keepalive_timeout   65;
     types_hash_max_size 2048;
 
-    include             /etc/nginx/mime.types;
+    include             /etc/jboss/mime.types;
     default_type        application/octet-stream;
 
-    # Load modular configuration files from the /etc/nginx/conf.d directory.
-    # See http://nginx.org/en/docs/ngx_core_module.html#include
+    # Load modular configuration files from the /etc/jboss/conf.d directory.
+    # See http://jboss.org/en/docs/ngx_core_module.html#include
     # for more information.
-    include /etc/nginx/conf.d/*.conf;
+    include /etc/jboss/conf.d/*.conf;
 
     index   index.html index.htm;
 }

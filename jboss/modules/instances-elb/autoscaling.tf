@@ -3,7 +3,7 @@ resource "aws_launch_configuration" "launchconfig" {
   image_id        = var.AMI_ID
   instance_type   = var.INSTANCE_TYPE
   key_name        = aws_key_pair.mykeypair.key_name
-  security_groups = [aws_security_group.allow-ssh.id, aws_security_group.nginx.id, aws_security_group.elb-securitygroup.id]
+  security_groups = [aws_security_group.allow-ssh.id, aws_security_group.jboss.id, aws_security_group.elb-securitygroup.id]
 }
 
 resource "aws_autoscaling_group" "autoscaling" {

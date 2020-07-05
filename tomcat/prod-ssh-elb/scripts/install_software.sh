@@ -6,10 +6,10 @@
 #done
 
 #whoami
-# install nginx
+# install tomcat
 echo "127.0.0.1 $(hostname)" >> /etc/hosts
 apt-get update
-apt-get -y install nginx
+apt-get -y install tomcat
 
-# make sure nginx is started
-service nginx start
+# make sure tomcat is started
+service tomcat start

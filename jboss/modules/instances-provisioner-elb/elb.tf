@@ -1,7 +1,7 @@
 resource "aws_elb" "elb" {
   name            = "elb-${var.APP}-${var.ENV}"
   subnets         = var.PUBLIC_SUBNETS
-  security_groups = [aws_security_group.allow-ssh.id, aws_security_group.nginx.id, aws_security_group.elb-securitygroup.id]
+  security_groups = [aws_security_group.allow-ssh.id, aws_security_group.jboss.id, aws_security_group.elb-securitygroup.id]
   
   listener {
     instance_port     = 80

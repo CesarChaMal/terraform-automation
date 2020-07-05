@@ -23,10 +23,10 @@ resource "aws_security_group" "allow-ssh" {
   }
 }
 
-resource "aws_security_group" "nginx" {
+resource "aws_security_group" "tomcat" {
   vpc_id      = var.VPC_ID
-  name        = "nginx-${var.ENV}"
-  description = "security group that allows web traffic for nginx"
+  name        = "tomcat-${var.ENV}"
+  description = "security group that allows web traffic for tomcat"
 
   egress {
     from_port   = 0
@@ -43,7 +43,7 @@ resource "aws_security_group" "nginx" {
   }
 
   tags = {
-    Name         = "nginx"
+    Name         = "tomcat"
     Environmnent = var.ENV
   }
 }

@@ -11,7 +11,7 @@ variable "ENV" {
 }
 
 variable "APP" {
-  default = "nginx"
+  default = "tomcat"
 }
 
 variable "AMIS" {

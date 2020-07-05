@@ -1,6 +1,6 @@
 #!/bin/bash
 AWS_REGION="eu-central-1"
-S3_BUCKET=`aws s3 ls --region $AWS_REGION | grep terraform-state-nginx-dev | tail -n1 |cut -d ' ' -f3`
+S3_BUCKET=`aws s3 ls --region $AWS_REGION | grep terraform-state-jboss-dev | tail -n1 |cut -d ' ' -f3`
 if [ -n "$S3_BUCKET" ]; then
 	sed -i 's/#//g' backend.tf
 	sed -i -e 's/^/#/' s3.tf

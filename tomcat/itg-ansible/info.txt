@@ -1,8 +1,8 @@
 ansible-playbook ansible/main.yml --connection=local
 ansible-playbook ansible/main.yml --syntax-check
-sudo nginx -t
+sudo tomcat -t
 packer build -machine-readable packer.json
-sudo apt-get purge -y nginx nginx-common
+sudo apt-get purge -y tomcat tomcat-common
 chmod +x dev-ssh-elb/scripts/install_software.sh
 chmod +x itg-ssh-elb/scripts/install_software.sh
 chmod +x prod-ssh-elb/scripts/install_software.sh

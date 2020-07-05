@@ -6,10 +6,10 @@ until [[ -f /var/lib/cloud/instance/boot-finished ]]; do
 done
 
 #whoami
-# install nginx
+# install jboss
 echo "127.0.0.1 $(hostname)" >> /etc/hosts
 apt-get update
-apt-get -y install nginx
+apt-get -y install jboss
 
-# make sure nginx is started
-service nginx start
+# make sure jboss is started
+service jboss start

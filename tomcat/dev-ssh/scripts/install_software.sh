@@ -6,10 +6,10 @@ until [[ -f /var/lib/cloud/instance/boot-finished ]]; do
 done
 
 #whoami
-# install nginx
+# install tomcat
 echo "127.0.0.1 $(hostname)" >> /etc/hosts
 apt-get update
-apt-get install -y nginx
+apt-get install -y tomcat
 
-# make sure nginx is started
-service nginx start
+# make sure tomcat is started
+service tomcat start

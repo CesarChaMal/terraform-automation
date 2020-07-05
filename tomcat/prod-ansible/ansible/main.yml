@@ -14,35 +14,35 @@
       register: reboot_required_file
       stat: path=/var/run/reboot-required get_md5=no
 
-    - name: Add PPA for Nginx.
+    - name: Add PPA for tomcat.
       apt_repository:
 #        repo: 'ppa:deadsnakes/ppa'
-        repo: 'ppa:nginx/stable'
+        repo: 'ppa:tomcat/stable'
         state: present
         update_cache: true
       register: nginx_ppa_added
 
-#    - name: Add repository of nginx
-#      shell: "add-apt-repository ppa:nginx/stable"
+#    - name: Add repository of tomcat
+#      shell: "add-apt-repository ppa:tomcat/stable"
 
     - name: Add hostname to hostfile
       shell: "echo \"127.0.0.1 $(hostname)\" >> /etc/hosts"
 
-    - name: Install nginx
+    - name: Install tomcat
       apt:
-        name: nginx
+        name: tomcat
         state: latest
         update_cache: true
 
-    - name: Copy nginx config files
+    - name: Copy tomcat config files
       copy:
-        src: "./files/nginx.conf"
-        dest: "/etc/nginx/nginx.conf"
+        src: "./files/tomcat.conf"
+        dest: "/etc/tomcat/tomcat.conf"
         mode: 0644
 
 
-    - name: Start Nginx
-      service: name=nginx state=restarted enabled=yes
+    - name: Start tomcat
+      service: name=tomcat state=restarted enabled=yes
       
 #    - name: Reboot the box if kernel updated
 #      reboot:

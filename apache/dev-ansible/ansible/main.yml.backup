@@ -24,19 +24,19 @@
         test_command: uptime
       when: reboot_required_file.stat.exists
 
-    - name: Add repository of nginx
+    - name: Add repository of apache
       shell: "add-apt-repository ppa:deadsnakes/ppa"
 
-    - name: Install nginx
+    - name: Install apache
       apt:
-        name: nginx
+        name: apache
         state: latest
         update_cache: true
 
-#    - name: Copy nginx config files
+#    - name: Copy apache config files
 #      copy:
-#        src: "./files/nginx.conf"
-#        dest: "/etc/nginx/nginx.conf"
+#        src: "./files/apache.conf"
+#        dest: "/etc/apache/apache.conf"
 #        mode: 0644
 
 #    - name: Creates directory
@@ -50,11 +50,11 @@
 #        dest: "/var/www/localhost/"
 #        mode: 0644
 
-#    - name: Update static nginx config
+#    - name: Update static apache config
 #      copy: 
 #        src: "./files/static_website.conf"
-#        dest: "/etc/nginx/conf.d/localhost.conf"
+#        dest: "/etc/apache/conf.d/localhost.conf"
 #        mode: 0644
       
-    - name: Start nginx
-      service: name=nginx state=started 
+    - name: Start apache
+      service: name=apache state=started 

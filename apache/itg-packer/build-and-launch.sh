@@ -8,11 +8,11 @@ cat packer.json
 AMI_ID=`echo $ARTIFACT | cut -d ':' -f2`
 echo "AMI ID: ${AMI_ID}"
 
-echo "writing amivar-nginx-itg.tf and uploading it to s3"
-echo 'variable "AMI_ID" { default = "'${AMI_ID}'" }' > amivar-nginx-itg.tf
+echo "writing amivar-apache-itg.tf and uploading it to s3"
+echo 'variable "AMI_ID" { default = "'${AMI_ID}'" }' > amivar-apache-itg.tf
 
 AWS_REGION="eu-central-1"
-S3_BUCKET=`aws s3 ls --region $AWS_REGION | grep terraform-state-nginx-itg | tail -n1 |cut -d ' ' -f3`
+S3_BUCKET=`aws s3 ls --region $AWS_REGION | grep terraform-state-apache-itg | tail -n1 |cut -d ' ' -f3`
 if [ -n "$S3_BUCKET" ]; then
 	sed -i 's/#//g' backend.tf
 	sed -i -e 's/^/#/' s3.tf

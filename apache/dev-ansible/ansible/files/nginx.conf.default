@@ -1,7 +1,7 @@
 user www-data;
 worker_processes auto;
-pid /run/nginx.pid;
-include /etc/nginx/modules-enabled/*.conf;
+pid /run/apache.pid;
+include /etc/apache/modules-enabled/*.conf;
 
 events {
         worker_connections 768;
@@ -24,7 +24,7 @@ http {
         # server_names_hash_bucket_size 64;
         # server_name_in_redirect off;
 
-        include /etc/nginx/mime.types;
+        include /etc/apache/mime.types;
         default_type application/octet-stream;
 
         ##
@@ -38,8 +38,8 @@ http {
         # Logging Settings
         ##
 
-        access_log /var/log/nginx/access.log;
-        error_log /var/log/nginx/error.log;
+        access_log /var/log/apache/access.log;
+        error_log /var/log/apache/error.log;
 
         ##
         # Gzip Settings
@@ -58,14 +58,14 @@ http {
         # Virtual Host Configs
         ##
 
-        include /etc/nginx/conf.d/*.conf;
-        include /etc/nginx/sites-enabled/*;
+        include /etc/apache/conf.d/*.conf;
+        include /etc/apache/sites-enabled/*;
 }
 
 
 #mail {
 #       # See sample authentication script at:
-#       # http://wiki.nginx.org/ImapAuthenticateWithApachePhpScript
+#       # http://wiki.apache.org/ImapAuthenticateWithApachePhpScript
 #
 #       # auth_http localhost/auth.php;
 #       # pop3_capabilities "TOP" "USER";

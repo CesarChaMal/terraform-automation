@@ -6,7 +6,7 @@ resource "aws_instance" "instance" {
   subnet_id = element(var.PUBLIC_SUBNETS, 0)
 
   # the security group
-  vpc_security_group_ids = [aws_security_group.allow-ssh.id, aws_security_group.nginx.id]
+  vpc_security_group_ids = [aws_security_group.allow-ssh.id, aws_security_group.apache.id]
 
   user_data = "#!/bin/bash\nsudo echo \"127.0.0.1 $(hostname)\" >> /etc/hosts"
 

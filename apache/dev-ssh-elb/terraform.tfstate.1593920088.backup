@@ -569,13 +569,13 @@
             "id": "4149726725",
             "part": [
               {
-                "content": "#!/bin/bash\r\n\r\n# sleep until instance is ready\r\n#until [[ -f /var/lib/cloud/instance/boot-finished ]]; do\r\n#  sleep 1\r\n#done\r\n\r\n#whoami\r\n# install nginx\r\necho \"127.0.0.1 $(hostname)\" \u003e\u003e /etc/hosts\r\napt-get update\r\napt-get install -y nginx\r\n\r\n# make sure nginx is started\r\nservice nginx start\r\n",
+                "content": "#!/bin/bash\r\n\r\n# sleep until instance is ready\r\n#until [[ -f /var/lib/cloud/instance/boot-finished ]]; do\r\n#  sleep 1\r\n#done\r\n\r\n#whoami\r\n# install apache\r\necho \"127.0.0.1 $(hostname)\" \u003e\u003e /etc/hosts\r\napt-get update\r\napt-get install -y apache\r\n\r\n# make sure apache is started\r\nservice apache start\r\n",
                 "content_type": "text/x-shellscript",
                 "filename": "",
                 "merge_type": ""
               }
             ],
-            "rendered": "Content-Type: multipart/mixed; boundary=\"MIMEBOUNDARY\"\nMIME-Version: 1.0\r\n\r\n--MIMEBOUNDARY\r\nContent-Transfer-Encoding: 7bit\r\nContent-Type: text/x-shellscript\r\nMime-Version: 1.0\r\n\r\n#!/bin/bash\r\n\r\n# sleep until instance is ready\r\n#until [[ -f /var/lib/cloud/instance/boot-finished ]]; do\r\n#  sleep 1\r\n#done\r\n\r\n#whoami\r\n# install nginx\r\necho \"127.0.0.1 $(hostname)\" \u003e\u003e /etc/hosts\r\napt-get update\r\napt-get install -y nginx\r\n\r\n# make sure nginx is started\r\nservice nginx start\r\n\r\n--MIMEBOUNDARY--\r\n"
+            "rendered": "Content-Type: multipart/mixed; boundary=\"MIMEBOUNDARY\"\nMIME-Version: 1.0\r\n\r\n--MIMEBOUNDARY\r\nContent-Transfer-Encoding: 7bit\r\nContent-Type: text/x-shellscript\r\nMime-Version: 1.0\r\n\r\n#!/bin/bash\r\n\r\n# sleep until instance is ready\r\n#until [[ -f /var/lib/cloud/instance/boot-finished ]]; do\r\n#  sleep 1\r\n#done\r\n\r\n#whoami\r\n# install apache\r\necho \"127.0.0.1 $(hostname)\" \u003e\u003e /etc/hosts\r\napt-get update\r\napt-get install -y apache\r\n\r\n# make sure apache is started\r\nservice apache start\r\n\r\n--MIMEBOUNDARY--\r\n"
           }
         }
       ]
@@ -592,8 +592,8 @@
           "attributes": {
             "filename": null,
             "id": "a61081d570b8bc4047fe51044b3a7f30a6882a3bd42541d41597a671788ce4be",
-            "rendered": "#!/bin/bash\r\n\r\n# sleep until instance is ready\r\n#until [[ -f /var/lib/cloud/instance/boot-finished ]]; do\r\n#  sleep 1\r\n#done\r\n\r\n#whoami\r\n# install nginx\r\necho \"127.0.0.1 $(hostname)\" \u003e\u003e /etc/hosts\r\napt-get update\r\napt-get install -y nginx\r\n\r\n# make sure nginx is started\r\nservice nginx start\r\n",
-            "template": "#!/bin/bash\r\n\r\n# sleep until instance is ready\r\n#until [[ -f /var/lib/cloud/instance/boot-finished ]]; do\r\n#  sleep 1\r\n#done\r\n\r\n#whoami\r\n# install nginx\r\necho \"127.0.0.1 $(hostname)\" \u003e\u003e /etc/hosts\r\napt-get update\r\napt-get install -y nginx\r\n\r\n# make sure nginx is started\r\nservice nginx start\r\n",
+            "rendered": "#!/bin/bash\r\n\r\n# sleep until instance is ready\r\n#until [[ -f /var/lib/cloud/instance/boot-finished ]]; do\r\n#  sleep 1\r\n#done\r\n\r\n#whoami\r\n# install apache\r\necho \"127.0.0.1 $(hostname)\" \u003e\u003e /etc/hosts\r\napt-get update\r\napt-get install -y apache\r\n\r\n# make sure apache is started\r\nservice apache start\r\n",
+            "template": "#!/bin/bash\r\n\r\n# sleep until instance is ready\r\n#until [[ -f /var/lib/cloud/instance/boot-finished ]]; do\r\n#  sleep 1\r\n#done\r\n\r\n#whoami\r\n# install apache\r\necho \"127.0.0.1 $(hostname)\" \u003e\u003e /etc/hosts\r\napt-get update\r\napt-get install -y apache\r\n\r\n# make sure apache is started\r\nservice apache start\r\n",
             "vars": {
               "VERSION": "2.204.5"
             }
@@ -668,7 +668,7 @@
             "module.instances-provisioner.aws_launch_configuration.launchconfig",
             "module.instances-provisioner.aws_security_group.allow-ssh",
             "module.instances-provisioner.aws_security_group.elb-securitygroup",
-            "module.instances-provisioner.aws_security_group.nginx",
+            "module.instances-provisioner.aws_security_group.apache",
             "module.main-vpc.module.main-vpc.aws_subnet.public",
             "module.main-vpc.module.main-vpc.aws_vpc.this",
             "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
@@ -709,7 +709,7 @@
             "module.instances-provisioner.aws_launch_configuration.launchconfig",
             "module.instances-provisioner.aws_security_group.allow-ssh",
             "module.instances-provisioner.aws_security_group.elb-securitygroup",
-            "module.instances-provisioner.aws_security_group.nginx",
+            "module.instances-provisioner.aws_security_group.apache",
             "module.main-vpc.module.main-vpc.aws_subnet.public",
             "module.main-vpc.module.main-vpc.aws_vpc.this",
             "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
@@ -750,7 +750,7 @@
             "module.instances-provisioner.aws_launch_configuration.launchconfig",
             "module.instances-provisioner.aws_security_group.allow-ssh",
             "module.instances-provisioner.aws_security_group.elb-securitygroup",
-            "module.instances-provisioner.aws_security_group.nginx",
+            "module.instances-provisioner.aws_security_group.apache",
             "module.main-vpc.module.main-vpc.aws_subnet.public",
             "module.main-vpc.module.main-vpc.aws_vpc.this",
             "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
@@ -815,7 +815,7 @@
             "module.instances-provisioner.aws_launch_configuration.launchconfig",
             "module.instances-provisioner.aws_security_group.allow-ssh",
             "module.instances-provisioner.aws_security_group.elb-securitygroup",
-            "module.instances-provisioner.aws_security_group.nginx",
+            "module.instances-provisioner.aws_security_group.apache",
             "module.main-vpc.module.main-vpc.aws_subnet.public",
             "module.main-vpc.module.main-vpc.aws_vpc.this",
             "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
@@ -871,7 +871,7 @@
             "module.instances-provisioner.aws_launch_configuration.launchconfig",
             "module.instances-provisioner.aws_security_group.allow-ssh",
             "module.instances-provisioner.aws_security_group.elb-securitygroup",
-            "module.instances-provisioner.aws_security_group.nginx",
+            "module.instances-provisioner.aws_security_group.apache",
             "module.main-vpc.module.main-vpc.aws_subnet.public",
             "module.main-vpc.module.main-vpc.aws_vpc.this",
             "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
@@ -1001,7 +1001,7 @@
               "sg-0ae62258b775f9515",
               "sg-0b206fed98082a60d"
             ],
-            "source_security_group": "774145483743/nginx-dev",
+            "source_security_group": "774145483743/apache-dev",
             "source_security_group_id": "sg-0b206fed98082a60d",
             "subnets": [
               "subnet-0316e98b9107f5228",
@@ -1018,7 +1018,7 @@
           "dependencies": [
             "module.instances-provisioner.aws_security_group.allow-ssh",
             "module.instances-provisioner.aws_security_group.elb-securitygroup",
-            "module.instances-provisioner.aws_security_group.nginx",
+            "module.instances-provisioner.aws_security_group.apache",
             "module.main-vpc.module.main-vpc.aws_subnet.public",
             "module.main-vpc.module.main-vpc.aws_vpc.this",
             "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
@@ -1156,7 +1156,7 @@
             "module.instances-provisioner.aws_key_pair.mykeypair",
             "module.instances-provisioner.aws_security_group.allow-ssh",
             "module.instances-provisioner.aws_security_group.elb-securitygroup",
-            "module.instances-provisioner.aws_security_group.nginx",
+            "module.instances-provisioner.aws_security_group.apache",
             "module.main-vpc.module.main-vpc.aws_vpc.this"
           ]
         }
@@ -1917,14 +1917,14 @@
       "module": "module.instances-provisioner",
       "mode": "managed",
       "type": "aws_security_group",
-      "name": "nginx",
+      "name": "apache",
       "provider": "provider.aws",
       "instances": [
         {
           "schema_version": 1,
           "attributes": {
             "arn": "arn:aws:ec2:eu-central-1:774145483743:security-group/sg-0b206fed98082a60d",
-            "description": "security group that allows web traffic for nginx",
+            "description": "security group that allows web traffic for apache",
             "egress": [
               {
                 "cidr_blocks": [
@@ -1956,13 +1956,13 @@
                 "to_port": 80
               }
             ],
-            "name": "nginx-dev",
+            "name": "apache-dev",
             "name_prefix": null,
             "owner_id": "774145483743",
             "revoke_rules_on_delete": false,
             "tags": {
               "Environmnent": "dev",
-              "Name": "nginx"
+              "Name": "apache"
             },
             "timeouts": null,
             "vpc_id": "vpc-053c98cefed64499d"
