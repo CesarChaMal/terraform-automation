@@ -29,7 +29,7 @@
       register: nginx_ppa_added
 
     - name: Install nginx
-      apt: name=apache2 update_cache=yes state=latest
+      apt: name=nginx update_cache=yes state=latest
 
     - name: Copy nginx config files
       copy:
