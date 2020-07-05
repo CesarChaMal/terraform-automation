@@ -1,4 +1,8 @@
 #!/bin/bash
+# install nginx
 echo "127.0.0.1 $(hostname)" >> /etc/hosts
 apt-get update
 apt-get install -y nginx
+
+# make sure nginx is started
+service nginx start
