@@ -10,6 +10,10 @@ variable "ENV" {
   default = "itg"
 }
 
+variable "APP" {
+  default = "nginx"
+}
+
 variable "AMIS" {
   type = map(string)
   default = {

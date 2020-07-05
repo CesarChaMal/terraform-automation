@@ -1,0 +1,2904 @@
+{
+  "version": 4,
+  "terraform_version": "0.12.26",
+  "serial": 32,
+  "lineage": "eec45f6e-4712-fa94-76ed-2d6a3778c917",
+  "outputs": {},
+  "resources": [
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_iam_policy_document",
+      "name": "flow_log_cloudwatch_assume_role",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_iam_policy_document",
+      "name": "vpc_flow_log_cloudwatch",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "access_analyzer",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "acm_pca",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "apigw",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "appmesh_envoy_management",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "appstream",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "athena",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "auto_scaling_plans",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "cloud_directory",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "cloudformation",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "cloudtrail",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "codebuild",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "codecommit",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "codepipeline",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "config",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "datasync",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "dynamodb",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "ebs",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "ec2",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "ec2_autoscaling",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "ec2messages",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "ecr_api",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "ecr_dkr",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "ecs",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "ecs_agent",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "ecs_telemetry",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "efs",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "elastic_inference_runtime",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "elasticbeanstalk",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "elasticbeanstalk_health",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "elasticloadbalancing",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "emr",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "events",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "git_codecommit",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "glue",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "kinesis_firehose",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "kinesis_streams",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "kms",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "logs",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "monitoring",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "qldb_session",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "rekognition",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "s3",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "sagemaker_api",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "sagemaker_notebook",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "sagemaker_runtime",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "secretsmanager",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "servicecatalog",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "ses",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "sms",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "sns",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "sqs",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "ssm",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "ssmmessages",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "states",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "storagegateway",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "sts",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "transfer",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "transferserver",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "data",
+      "type": "aws_vpc_endpoint_service",
+      "name": "workspaces",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.instances-provisioner",
+      "mode": "data",
+      "type": "template_cloudinit_config",
+      "name": "config",
+      "provider": "provider.template",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "base64_encode": false,
+            "gzip": false,
+            "id": "4149726725",
+            "part": [
+              {
+                "content": "#!/bin/bash\r\n\r\n# sleep until instance is ready\r\n#until [[ -f /var/lib/cloud/instance/boot-finished ]]; do\r\n#  sleep 1\r\n#done\r\n\r\n#whoami\r\n# install nginx\r\necho \"127.0.0.1 $(hostname)\" \u003e\u003e /etc/hosts\r\napt-get update\r\napt-get install -y nginx\r\n\r\n# make sure nginx is started\r\nservice nginx start\r\n",
+                "content_type": "text/x-shellscript",
+                "filename": "",
+                "merge_type": ""
+              }
+            ],
+            "rendered": "Content-Type: multipart/mixed; boundary=\"MIMEBOUNDARY\"\nMIME-Version: 1.0\r\n\r\n--MIMEBOUNDARY\r\nContent-Transfer-Encoding: 7bit\r\nContent-Type: text/x-shellscript\r\nMime-Version: 1.0\r\n\r\n#!/bin/bash\r\n\r\n# sleep until instance is ready\r\n#until [[ -f /var/lib/cloud/instance/boot-finished ]]; do\r\n#  sleep 1\r\n#done\r\n\r\n#whoami\r\n# install nginx\r\necho \"127.0.0.1 $(hostname)\" \u003e\u003e /etc/hosts\r\napt-get update\r\napt-get install -y nginx\r\n\r\n# make sure nginx is started\r\nservice nginx start\r\n\r\n--MIMEBOUNDARY--\r\n"
+          }
+        }
+      ]
+    },
+    {
+      "module": "module.instances-provisioner",
+      "mode": "data",
+      "type": "template_file",
+      "name": "script",
+      "provider": "provider.template",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "filename": null,
+            "id": "a61081d570b8bc4047fe51044b3a7f30a6882a3bd42541d41597a671788ce4be",
+            "rendered": "#!/bin/bash\r\n\r\n# sleep until instance is ready\r\n#until [[ -f /var/lib/cloud/instance/boot-finished ]]; do\r\n#  sleep 1\r\n#done\r\n\r\n#whoami\r\n# install nginx\r\necho \"127.0.0.1 $(hostname)\" \u003e\u003e /etc/hosts\r\napt-get update\r\napt-get install -y nginx\r\n\r\n# make sure nginx is started\r\nservice nginx start\r\n",
+            "template": "#!/bin/bash\r\n\r\n# sleep until instance is ready\r\n#until [[ -f /var/lib/cloud/instance/boot-finished ]]; do\r\n#  sleep 1\r\n#done\r\n\r\n#whoami\r\n# install nginx\r\necho \"127.0.0.1 $(hostname)\" \u003e\u003e /etc/hosts\r\napt-get update\r\napt-get install -y nginx\r\n\r\n# make sure nginx is started\r\nservice nginx start\r\n",
+            "vars": {
+              "VERSION": "2.204.5"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "module": "module.instances-provisioner",
+      "mode": "managed",
+      "type": "aws_autoscaling_group",
+      "name": "autoscaling",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:autoscaling:eu-central-1:774145483743:autoScalingGroup:7ce9a89d-a19c-4758-9359-3e242c3046c5:autoScalingGroupName/autoscaling",
+            "availability_zones": [
+              "eu-central-1a",
+              "eu-central-1b",
+              "eu-central-1c"
+            ],
+            "default_cooldown": 300,
+            "desired_capacity": 1,
+            "enabled_metrics": null,
+            "force_delete": true,
+            "health_check_grace_period": 300,
+            "health_check_type": "ELB",
+            "id": "autoscaling",
+            "initial_lifecycle_hook": [],
+            "launch_configuration": "launchconfig20200705032945693800000001",
+            "launch_template": [],
+            "load_balancers": [
+              "elb-dev"
+            ],
+            "max_instance_lifetime": 0,
+            "max_size": 2,
+            "metrics_granularity": "1Minute",
+            "min_elb_capacity": null,
+            "min_size": 1,
+            "mixed_instances_policy": [],
+            "name": "autoscaling",
+            "name_prefix": null,
+            "placement_group": "",
+            "protect_from_scale_in": false,
+            "service_linked_role_arn": "arn:aws:iam::774145483743:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
+            "suspended_processes": null,
+            "tag": [
+              {
+                "key": "Name",
+                "propagate_at_launch": true,
+                "value": "instance-dev"
+              }
+            ],
+            "tags": null,
+            "target_group_arns": [],
+            "termination_policies": null,
+            "timeouts": null,
+            "vpc_zone_identifier": [
+              "subnet-0316e98b9107f5228",
+              "subnet-0a32397cb8969a49d",
+              "subnet-0bfec1dd77d9cd8f6"
+            ],
+            "wait_for_capacity_timeout": "10m",
+            "wait_for_elb_capacity": null
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjo2MDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "module.instances-provisioner.aws_elb.elb",
+            "module.instances-provisioner.aws_key_pair.mykeypair",
+            "module.instances-provisioner.aws_launch_configuration.launchconfig",
+            "module.instances-provisioner.aws_security_group.allow-ssh",
+            "module.instances-provisioner.aws_security_group.elb-securitygroup",
+            "module.instances-provisioner.aws_security_group.nginx",
+            "module.main-vpc.module.main-vpc.aws_subnet.public",
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.instances-provisioner",
+      "mode": "managed",
+      "type": "aws_autoscaling_policy",
+      "name": "cpu-policy-scaledown",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "adjustment_type": "ChangeInCapacity",
+            "arn": "arn:aws:autoscaling:eu-central-1:774145483743:scalingPolicy:4cd61b2e-1ce1-48a7-b725-13638d9f4068:autoScalingGroupName/autoscaling:policyName/cpu-policy-scaledown",
+            "autoscaling_group_name": "autoscaling",
+            "cooldown": 300,
+            "estimated_instance_warmup": 0,
+            "id": "cpu-policy-scaledown",
+            "metric_aggregation_type": "",
+            "min_adjustment_magnitude": null,
+            "min_adjustment_step": null,
+            "name": "cpu-policy-scaledown",
+            "policy_type": "SimpleScaling",
+            "scaling_adjustment": -1,
+            "step_adjustment": [],
+            "target_tracking_configuration": []
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.instances-provisioner.aws_autoscaling_group.autoscaling",
+            "module.instances-provisioner.aws_elb.elb",
+            "module.instances-provisioner.aws_key_pair.mykeypair",
+            "module.instances-provisioner.aws_launch_configuration.launchconfig",
+            "module.instances-provisioner.aws_security_group.allow-ssh",
+            "module.instances-provisioner.aws_security_group.elb-securitygroup",
+            "module.instances-provisioner.aws_security_group.nginx",
+            "module.main-vpc.module.main-vpc.aws_subnet.public",
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.instances-provisioner",
+      "mode": "managed",
+      "type": "aws_autoscaling_policy",
+      "name": "cpu-policy-scaleup",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "adjustment_type": "ChangeInCapacity",
+            "arn": "arn:aws:autoscaling:eu-central-1:774145483743:scalingPolicy:66d78cad-1bf9-40fb-ab5b-3fa2a98f7a42:autoScalingGroupName/autoscaling:policyName/cpu-policy-scaleup",
+            "autoscaling_group_name": "autoscaling",
+            "cooldown": 300,
+            "estimated_instance_warmup": 0,
+            "id": "cpu-policy-scaleup",
+            "metric_aggregation_type": "",
+            "min_adjustment_magnitude": null,
+            "min_adjustment_step": null,
+            "name": "cpu-policy-scaleup",
+            "policy_type": "SimpleScaling",
+            "scaling_adjustment": 1,
+            "step_adjustment": [],
+            "target_tracking_configuration": []
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.instances-provisioner.aws_autoscaling_group.autoscaling",
+            "module.instances-provisioner.aws_elb.elb",
+            "module.instances-provisioner.aws_key_pair.mykeypair",
+            "module.instances-provisioner.aws_launch_configuration.launchconfig",
+            "module.instances-provisioner.aws_security_group.allow-ssh",
+            "module.instances-provisioner.aws_security_group.elb-securitygroup",
+            "module.instances-provisioner.aws_security_group.nginx",
+            "module.main-vpc.module.main-vpc.aws_subnet.public",
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_cloudwatch_log_group",
+      "name": "flow_log",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.instances-provisioner",
+      "mode": "managed",
+      "type": "aws_cloudwatch_metric_alarm",
+      "name": "cpu-alarm",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "actions_enabled": true,
+            "alarm_actions": [
+              "arn:aws:autoscaling:eu-central-1:774145483743:scalingPolicy:66d78cad-1bf9-40fb-ab5b-3fa2a98f7a42:autoScalingGroupName/autoscaling:policyName/cpu-policy-scaleup"
+            ],
+            "alarm_description": "cpu-alarm-scaleup",
+            "alarm_name": "cpu-alarm-scaleup",
+            "arn": "arn:aws:cloudwatch:eu-central-1:774145483743:alarm:cpu-alarm-scaleup",
+            "comparison_operator": "GreaterThanOrEqualToThreshold",
+            "datapoints_to_alarm": 0,
+            "dimensions": {
+              "AutoScalingGroupName": "autoscaling"
+            },
+            "evaluate_low_sample_count_percentiles": "",
+            "evaluation_periods": 2,
+            "extended_statistic": "",
+            "id": "cpu-alarm-scaleup",
+            "insufficient_data_actions": null,
+            "metric_name": "CPUUtilization",
+            "metric_query": [],
+            "namespace": "AWS/EC2",
+            "ok_actions": null,
+            "period": 120,
+            "statistic": "Average",
+            "tags": null,
+            "threshold": 30,
+            "threshold_metric_id": "",
+            "treat_missing_data": "missing",
+            "unit": ""
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ==",
+          "dependencies": [
+            "module.instances-provisioner.aws_autoscaling_group.autoscaling",
+            "module.instances-provisioner.aws_autoscaling_policy.cpu-policy-scaleup",
+            "module.instances-provisioner.aws_elb.elb",
+            "module.instances-provisioner.aws_key_pair.mykeypair",
+            "module.instances-provisioner.aws_launch_configuration.launchconfig",
+            "module.instances-provisioner.aws_security_group.allow-ssh",
+            "module.instances-provisioner.aws_security_group.elb-securitygroup",
+            "module.instances-provisioner.aws_security_group.nginx",
+            "module.main-vpc.module.main-vpc.aws_subnet.public",
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.instances-provisioner",
+      "mode": "managed",
+      "type": "aws_cloudwatch_metric_alarm",
+      "name": "cpu-alarm-scaledown",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "actions_enabled": true,
+            "alarm_actions": [
+              "arn:aws:autoscaling:eu-central-1:774145483743:scalingPolicy:4cd61b2e-1ce1-48a7-b725-13638d9f4068:autoScalingGroupName/autoscaling:policyName/cpu-policy-scaledown"
+            ],
+            "alarm_description": "cpu-alarm-scaledown",
+            "alarm_name": "cpu-alarm-scaledown",
+            "arn": "arn:aws:cloudwatch:eu-central-1:774145483743:alarm:cpu-alarm-scaledown",
+            "comparison_operator": "LessThanOrEqualToThreshold",
+            "datapoints_to_alarm": 0,
+            "dimensions": {
+              "AutoScalingGroupName": "autoscaling"
+            },
+            "evaluate_low_sample_count_percentiles": "",
+            "evaluation_periods": 2,
+            "extended_statistic": "",
+            "id": "cpu-alarm-scaledown",
+            "insufficient_data_actions": null,
+            "metric_name": "CPUUtilization",
+            "metric_query": [],
+            "namespace": "AWS/EC2",
+            "ok_actions": null,
+            "period": 120,
+            "statistic": "Average",
+            "tags": null,
+            "threshold": 5,
+            "threshold_metric_id": "",
+            "treat_missing_data": "missing",
+            "unit": ""
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ==",
+          "dependencies": [
+            "module.instances-provisioner.aws_autoscaling_group.autoscaling",
+            "module.instances-provisioner.aws_autoscaling_policy.cpu-policy-scaledown",
+            "module.instances-provisioner.aws_elb.elb",
+            "module.instances-provisioner.aws_key_pair.mykeypair",
+            "module.instances-provisioner.aws_launch_configuration.launchconfig",
+            "module.instances-provisioner.aws_security_group.allow-ssh",
+            "module.instances-provisioner.aws_security_group.elb-securitygroup",
+            "module.instances-provisioner.aws_security_group.nginx",
+            "module.main-vpc.module.main-vpc.aws_subnet.public",
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_customer_gateway",
+      "name": "this",
+      "each": "map",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_db_subnet_group",
+      "name": "database",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_default_network_acl",
+      "name": "this",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_default_security_group",
+      "name": "this",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_default_vpc",
+      "name": "this",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_egress_only_internet_gateway",
+      "name": "this",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_eip",
+      "name": "nat",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_elasticache_subnet_group",
+      "name": "elasticache",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.instances-provisioner",
+      "mode": "managed",
+      "type": "aws_elb",
+      "name": "elb",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "access_logs": [],
+            "arn": "arn:aws:elasticloadbalancing:eu-central-1:774145483743:loadbalancer/elb-dev",
+            "availability_zones": [
+              "eu-central-1a",
+              "eu-central-1b",
+              "eu-central-1c"
+            ],
+            "connection_draining": true,
+            "connection_draining_timeout": 400,
+            "cross_zone_load_balancing": true,
+            "dns_name": "elb-dev-370191242.eu-central-1.elb.amazonaws.com",
+            "health_check": [
+              {
+                "healthy_threshold": 2,
+                "interval": 30,
+                "target": "HTTP:80/",
+                "timeout": 3,
+                "unhealthy_threshold": 2
+              }
+            ],
+            "id": "elb-dev",
+            "idle_timeout": 60,
+            "instances": [],
+            "internal": false,
+            "listener": [
+              {
+                "instance_port": 80,
+                "instance_protocol": "http",
+                "lb_port": 80,
+                "lb_protocol": "http",
+                "ssl_certificate_id": ""
+              }
+            ],
+            "name": "elb-dev",
+            "name_prefix": null,
+            "security_groups": [
+              "sg-0931e8c73efe64246",
+              "sg-0ae62258b775f9515",
+              "sg-0b206fed98082a60d"
+            ],
+            "source_security_group": "774145483743/nginx-dev",
+            "source_security_group_id": "sg-0b206fed98082a60d",
+            "subnets": [
+              "subnet-0316e98b9107f5228",
+              "subnet-0a32397cb8969a49d",
+              "subnet-0bfec1dd77d9cd8f6"
+            ],
+            "tags": {
+              "Environmnent": "dev",
+              "Name": "elb-dev"
+            },
+            "zone_id": "Z215JYRZR1TBD5"
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.instances-provisioner.aws_security_group.allow-ssh",
+            "module.instances-provisioner.aws_security_group.elb-securitygroup",
+            "module.instances-provisioner.aws_security_group.nginx",
+            "module.main-vpc.module.main-vpc.aws_subnet.public",
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_flow_log",
+      "name": "this",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_iam_policy",
+      "name": "vpc_flow_log_cloudwatch",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_iam_role",
+      "name": "vpc_flow_log_cloudwatch",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_iam_role_policy_attachment",
+      "name": "vpc_flow_log_cloudwatch",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_internet_gateway",
+      "name": "this",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:internet-gateway/igw-01a42731762c9bc60",
+            "id": "igw-01a42731762c9bc60",
+            "owner_id": "774145483743",
+            "tags": {
+              "Environment": "dev",
+              "Name": "vpc-dev",
+              "Terraform": "true"
+            },
+            "vpc_id": "vpc-053c98cefed64499d"
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.instances-provisioner",
+      "mode": "managed",
+      "type": "aws_key_pair",
+      "name": "mykeypair",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:key-pair/mykeypair-dev",
+            "fingerprint": "69:4d:f2:62:46:59:be:48:fe:e5:4b:21:b1:71:9d:fc",
+            "id": "mykeypair-dev",
+            "key_name": "mykeypair-dev",
+            "key_name_prefix": null,
+            "key_pair_id": "key-0d2bb0d9b57427a13",
+            "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDvMjX6ra97UaCms/nHMKgPdyktO7AdPT49F4BKjBZXWzcWjIBij+ecH+R9mtSQrteZZawJKXyhr1RMz5N5IJ2EzGblofvSFU7kNFHV8z9raFqkgLv9aXDRfg3owVkp9SKF7/PS1ILzK6udcRCBdVIjzav3AnZcVtHLs5bKv56s8f2jK0J5orzw84OTMRTG/mbLC2lJ2kqYRLoBpulsXq3z/jKb3nKmwYhjbBBmJKtqroe5pGJYfWKFogrv9ILKknyveSXd2fBsiPwRYL4qVefsPK3QHespdhrV0FK1NwOVDBg46TEi6qkBbhwvh/alyFyQNRxBwdkXVd4OWWKtr/PmRgpXA/YKWoyDuqW5PS/8PQhLZ8RGbJi0E+w/c0C0l9WAhzf+piFO+DSu2H5UeEgt9mokbqecMvRuIzORHIfEE9BJMDjJ1ikcfb7LFmiOEQTMViJAiwMpjQwBrgUdZM1qePMqwyF4QjgNucx9m0CZ6tzAZKFKTRqIIJj1vzwumvU= Cesar@RAZERBLADE14",
+            "tags": null
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.instances-provisioner",
+      "mode": "managed",
+      "type": "aws_launch_configuration",
+      "name": "launchconfig",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:autoscaling:eu-central-1:774145483743:launchConfiguration:2f0cbe60-bacb-42e8-821e-b13c97cc15fa:launchConfigurationName/launchconfig20200705032945693800000001",
+            "associate_public_ip_address": false,
+            "ebs_block_device": [],
+            "ebs_optimized": false,
+            "enable_monitoring": true,
+            "ephemeral_block_device": [],
+            "iam_instance_profile": "",
+            "id": "launchconfig20200705032945693800000001",
+            "image_id": "ami-074a2642e2a3737d2",
+            "instance_type": "t2.micro",
+            "key_name": "mykeypair-dev",
+            "name": "launchconfig20200705032945693800000001",
+            "name_prefix": "launchconfig",
+            "placement_tenancy": null,
+            "root_block_device": [],
+            "security_groups": [
+              "sg-0931e8c73efe64246",
+              "sg-0ae62258b775f9515",
+              "sg-0b206fed98082a60d"
+            ],
+            "spot_price": "",
+            "user_data": "774b66c00e106c30ff3626e71fc34056c7b9f1d7",
+            "user_data_base64": null,
+            "vpc_classic_link_id": "",
+            "vpc_classic_link_security_groups": null
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.instances-provisioner.aws_key_pair.mykeypair",
+            "module.instances-provisioner.aws_security_group.allow-ssh",
+            "module.instances-provisioner.aws_security_group.elb-securitygroup",
+            "module.instances-provisioner.aws_security_group.nginx",
+            "module.main-vpc.module.main-vpc.aws_vpc.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_nat_gateway",
+      "name": "this",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl",
+      "name": "database",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl",
+      "name": "elasticache",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl",
+      "name": "intra",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl",
+      "name": "private",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl",
+      "name": "public",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl",
+      "name": "redshift",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl_rule",
+      "name": "database_inbound",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl_rule",
+      "name": "database_outbound",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl_rule",
+      "name": "elasticache_inbound",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl_rule",
+      "name": "elasticache_outbound",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl_rule",
+      "name": "intra_inbound",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl_rule",
+      "name": "intra_outbound",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl_rule",
+      "name": "private_inbound",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl_rule",
+      "name": "private_outbound",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl_rule",
+      "name": "public_inbound",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl_rule",
+      "name": "public_outbound",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl_rule",
+      "name": "redshift_inbound",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_network_acl_rule",
+      "name": "redshift_outbound",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_redshift_subnet_group",
+      "name": "redshift",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route",
+      "name": "database_internet_gateway",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route",
+      "name": "database_ipv6_egress",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route",
+      "name": "database_nat_gateway",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route",
+      "name": "private_ipv6_egress",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route",
+      "name": "private_nat_gateway",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route",
+      "name": "public_internet_gateway",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "destination_cidr_block": "0.0.0.0/0",
+            "destination_ipv6_cidr_block": "",
+            "destination_prefix_list_id": "",
+            "egress_only_gateway_id": "",
+            "gateway_id": "igw-01a42731762c9bc60",
+            "id": "r-rtb-0eca3a56fa2f9e4c51080289494",
+            "instance_id": "",
+            "instance_owner_id": "",
+            "nat_gateway_id": "",
+            "network_interface_id": "",
+            "origin": "CreateRoute",
+            "route_table_id": "rtb-0eca3a56fa2f9e4c5",
+            "state": "active",
+            "timeouts": {
+              "create": "5m",
+              "delete": null
+            },
+            "transit_gateway_id": "",
+            "vpc_peering_connection_id": ""
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDAsImRlbGV0ZSI6MzAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_internet_gateway.this",
+            "module.main-vpc.module.main-vpc.aws_route_table.public",
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route",
+      "name": "public_internet_gateway_ipv6",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route_table",
+      "name": "database",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route_table",
+      "name": "elasticache",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route_table",
+      "name": "intra",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route_table",
+      "name": "private",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "id": "rtb-03a31da1c9c3cb4bd",
+            "owner_id": "774145483743",
+            "propagating_vgws": [],
+            "route": [],
+            "tags": {
+              "Environment": "dev",
+              "Name": "vpc-dev-private-eu-central-1a",
+              "Terraform": "true"
+            },
+            "vpc_id": "vpc-053c98cefed64499d"
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 0,
+          "attributes": {
+            "id": "rtb-0aa839879bdd89842",
+            "owner_id": "774145483743",
+            "propagating_vgws": [],
+            "route": [],
+            "tags": {
+              "Environment": "dev",
+              "Name": "vpc-dev-private-eu-central-1b",
+              "Terraform": "true"
+            },
+            "vpc_id": "vpc-053c98cefed64499d"
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        },
+        {
+          "index_key": 2,
+          "schema_version": 0,
+          "attributes": {
+            "id": "rtb-0cecda0b2538f25be",
+            "owner_id": "774145483743",
+            "propagating_vgws": [],
+            "route": [],
+            "tags": {
+              "Environment": "dev",
+              "Name": "vpc-dev-private-eu-central-1c",
+              "Terraform": "true"
+            },
+            "vpc_id": "vpc-053c98cefed64499d"
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route_table",
+      "name": "public",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "id": "rtb-0eca3a56fa2f9e4c5",
+            "owner_id": "774145483743",
+            "propagating_vgws": [],
+            "route": [],
+            "tags": {
+              "Environment": "dev",
+              "Name": "vpc-dev-public",
+              "Terraform": "true"
+            },
+            "vpc_id": "vpc-053c98cefed64499d"
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route_table",
+      "name": "redshift",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route_table_association",
+      "name": "database",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route_table_association",
+      "name": "elasticache",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route_table_association",
+      "name": "intra",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route_table_association",
+      "name": "private",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": null,
+            "id": "rtbassoc-0dc3082d904b31ddf",
+            "route_table_id": "rtb-03a31da1c9c3cb4bd",
+            "subnet_id": "subnet-026373551e74a0ebb"
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_route_table.private",
+            "module.main-vpc.module.main-vpc.aws_subnet.private",
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": null,
+            "id": "rtbassoc-089947ecd43502a4d",
+            "route_table_id": "rtb-0aa839879bdd89842",
+            "subnet_id": "subnet-0174dbc15b5ca7223"
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_route_table.private",
+            "module.main-vpc.module.main-vpc.aws_subnet.private",
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        },
+        {
+          "index_key": 2,
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": null,
+            "id": "rtbassoc-0bc32f6142d7ed495",
+            "route_table_id": "rtb-0cecda0b2538f25be",
+            "subnet_id": "subnet-0cc444585ab4e5ece"
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_route_table.private",
+            "module.main-vpc.module.main-vpc.aws_subnet.private",
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route_table_association",
+      "name": "public",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": null,
+            "id": "rtbassoc-0dba85bd6aa2f8774",
+            "route_table_id": "rtb-0eca3a56fa2f9e4c5",
+            "subnet_id": "subnet-0316e98b9107f5228"
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_route_table.public",
+            "module.main-vpc.module.main-vpc.aws_subnet.public",
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": null,
+            "id": "rtbassoc-050bbd2cf23fcb878",
+            "route_table_id": "rtb-0eca3a56fa2f9e4c5",
+            "subnet_id": "subnet-0a32397cb8969a49d"
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_route_table.public",
+            "module.main-vpc.module.main-vpc.aws_subnet.public",
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        },
+        {
+          "index_key": 2,
+          "schema_version": 0,
+          "attributes": {
+            "gateway_id": null,
+            "id": "rtbassoc-0d4d1c9654973176f",
+            "route_table_id": "rtb-0eca3a56fa2f9e4c5",
+            "subnet_id": "subnet-0bfec1dd77d9cd8f6"
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_route_table.public",
+            "module.main-vpc.module.main-vpc.aws_subnet.public",
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route_table_association",
+      "name": "redshift",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_route_table_association",
+      "name": "redshift_public",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "terraform-state",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": "private",
+            "arn": "arn:aws:s3:::terraform-state-dev-a286129",
+            "bucket": "terraform-state-dev-a286129",
+            "bucket_domain_name": "terraform-state-dev-a286129.s3.amazonaws.com",
+            "bucket_prefix": null,
+            "bucket_regional_domain_name": "terraform-state-dev-a286129.s3.eu-central-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": true,
+            "grant": [],
+            "hosted_zone_id": "Z21DNDUVLTQW6Q",
+            "id": "terraform-state-dev-a286129",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "policy": null,
+            "region": "eu-central-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [],
+            "tags": {
+              "Name": "Terraform state"
+            },
+            "versioning": [
+              {
+                "enabled": true,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.instances-provisioner",
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "allow-ssh",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:security-group/sg-0931e8c73efe64246",
+            "description": "security group that allows ssh and all egress traffic",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-0931e8c73efe64246",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 22,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 22
+              }
+            ],
+            "name": "allow-ssh-dev",
+            "name_prefix": null,
+            "owner_id": "774145483743",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Environmnent": "dev",
+              "Name": "allow-ssh"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-053c98cefed64499d"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_vpc.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.instances-provisioner",
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "elb-securitygroup",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:security-group/sg-0ae62258b775f9515",
+            "description": "security group for load balancer",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-0ae62258b775f9515",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              }
+            ],
+            "name": "elb-dev",
+            "name_prefix": null,
+            "owner_id": "774145483743",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Environmnent": "dev",
+              "Name": "elb"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-053c98cefed64499d"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_vpc.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.instances-provisioner",
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "nginx",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:security-group/sg-0b206fed98082a60d",
+            "description": "security group that allows web traffic for nginx",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-0b206fed98082a60d",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              }
+            ],
+            "name": "nginx-dev",
+            "name_prefix": null,
+            "owner_id": "774145483743",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Environmnent": "dev",
+              "Name": "nginx"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-053c98cefed64499d"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_vpc.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_subnet",
+      "name": "database",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_subnet",
+      "name": "elasticache",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_subnet",
+      "name": "intra",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_subnet",
+      "name": "private",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-026373551e74a0ebb",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "eu-central-1a",
+            "availability_zone_id": "euc1-az2",
+            "cidr_block": "10.0.1.0/24",
+            "id": "subnet-026373551e74a0ebb",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "map_public_ip_on_launch": false,
+            "outpost_arn": "",
+            "owner_id": "774145483743",
+            "tags": {
+              "Environment": "dev",
+              "Name": "vpc-dev-private-eu-central-1a",
+              "Terraform": "true"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-053c98cefed64499d"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-0174dbc15b5ca7223",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "eu-central-1b",
+            "availability_zone_id": "euc1-az3",
+            "cidr_block": "10.0.2.0/24",
+            "id": "subnet-0174dbc15b5ca7223",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "map_public_ip_on_launch": false,
+            "outpost_arn": "",
+            "owner_id": "774145483743",
+            "tags": {
+              "Environment": "dev",
+              "Name": "vpc-dev-private-eu-central-1b",
+              "Terraform": "true"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-053c98cefed64499d"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        },
+        {
+          "index_key": 2,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-0cc444585ab4e5ece",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "eu-central-1c",
+            "availability_zone_id": "euc1-az1",
+            "cidr_block": "10.0.3.0/24",
+            "id": "subnet-0cc444585ab4e5ece",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "map_public_ip_on_launch": false,
+            "outpost_arn": "",
+            "owner_id": "774145483743",
+            "tags": {
+              "Environment": "dev",
+              "Name": "vpc-dev-private-eu-central-1c",
+              "Terraform": "true"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-053c98cefed64499d"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_subnet",
+      "name": "public",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-0316e98b9107f5228",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "eu-central-1a",
+            "availability_zone_id": "euc1-az2",
+            "cidr_block": "10.0.101.0/24",
+            "id": "subnet-0316e98b9107f5228",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "map_public_ip_on_launch": true,
+            "outpost_arn": "",
+            "owner_id": "774145483743",
+            "tags": {
+              "Environment": "dev",
+              "Name": "vpc-dev-public-eu-central-1a",
+              "Terraform": "true"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-053c98cefed64499d"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        },
+        {
+          "index_key": 1,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-0a32397cb8969a49d",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "eu-central-1b",
+            "availability_zone_id": "euc1-az3",
+            "cidr_block": "10.0.102.0/24",
+            "id": "subnet-0a32397cb8969a49d",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "map_public_ip_on_launch": true,
+            "outpost_arn": "",
+            "owner_id": "774145483743",
+            "tags": {
+              "Environment": "dev",
+              "Name": "vpc-dev-public-eu-central-1b",
+              "Terraform": "true"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-053c98cefed64499d"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        },
+        {
+          "index_key": 2,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-0bfec1dd77d9cd8f6",
+            "assign_ipv6_address_on_creation": false,
+            "availability_zone": "eu-central-1c",
+            "availability_zone_id": "euc1-az1",
+            "cidr_block": "10.0.103.0/24",
+            "id": "subnet-0bfec1dd77d9cd8f6",
+            "ipv6_cidr_block": "",
+            "ipv6_cidr_block_association_id": "",
+            "map_public_ip_on_launch": true,
+            "outpost_arn": "",
+            "owner_id": "774145483743",
+            "tags": {
+              "Environment": "dev",
+              "Name": "vpc-dev-public-eu-central-1c",
+              "Terraform": "true"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-053c98cefed64499d"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
+          "dependencies": [
+            "module.main-vpc.module.main-vpc.aws_vpc.this",
+            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_subnet",
+      "name": "redshift",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc",
+      "name": "this",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:vpc/vpc-053c98cefed64499d",
+            "assign_generated_ipv6_cidr_block": false,
+            "cidr_block": "10.0.0.0/16",
+            "default_network_acl_id": "acl-0e4982a0d251a3c0b",
+            "default_route_table_id": "rtb-0e6784ed1b7c47caf",
+            "default_security_group_id": "sg-0bb19777583e125cf",
+            "dhcp_options_id": "dopt-3b11ca51",
+            "enable_classiclink": null,
+            "enable_classiclink_dns_support": null,
+            "enable_dns_hostnames": false,
+            "enable_dns_support": true,
+            "id": "vpc-053c98cefed64499d",
+            "instance_tenancy": "default",
+            "ipv6_association_id": "",
+            "ipv6_cidr_block": "",
+            "main_route_table_id": "rtb-0e6784ed1b7c47caf",
+            "owner_id": "774145483743",
+            "tags": {
+              "Environment": "dev",
+              "Name": "vpc-dev",
+              "Terraform": "true"
+            }
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_dhcp_options",
+      "name": "this",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_dhcp_options_association",
+      "name": "this",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "access_analyzer",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "acm_pca",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "apigw",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "appmesh_envoy_management",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "appstream",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "athena",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "auto_scaling_plans",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "cloud_directory",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "cloudformation",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "cloudtrail",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "codebuild",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "codecommit",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "codepipeline",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "config",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "datasync",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "dynamodb",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "ebs",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "ec2",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "ec2_autoscaling",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "ec2messages",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "ecr_api",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "ecr_dkr",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "ecs",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "ecs_agent",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "ecs_telemetry",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "efs",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "elastic_inference_runtime",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "elasticbeanstalk",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "elasticbeanstalk_health",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "elasticloadbalancing",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "emr",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "events",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "git_codecommit",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "glue",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "kinesis_firehose",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "kinesis_streams",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "kms",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "logs",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "monitoring",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "qldb_session",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "rekognition",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "s3",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "sagemaker_api",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "sagemaker_notebook",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "sagemaker_runtime",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "secretsmanager",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "servicecatalog",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "ses",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "sms",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "sns",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "sqs",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "ssm",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "ssmmessages",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "states",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "storagegateway",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "sts",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "transfer",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "transferserver",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint",
+      "name": "workspaces",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint_route_table_association",
+      "name": "intra_dynamodb",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint_route_table_association",
+      "name": "intra_s3",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint_route_table_association",
+      "name": "private_dynamodb",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint_route_table_association",
+      "name": "private_s3",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint_route_table_association",
+      "name": "public_dynamodb",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_endpoint_route_table_association",
+      "name": "public_s3",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpc_ipv4_cidr_block_association",
+      "name": "this",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpn_gateway",
+      "name": "this",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpn_gateway_attachment",
+      "name": "this",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpn_gateway_route_propagation",
+      "name": "intra",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpn_gateway_route_propagation",
+      "name": "private",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    },
+    {
+      "module": "module.main-vpc.module.main-vpc",
+      "mode": "managed",
+      "type": "aws_vpn_gateway_route_propagation",
+      "name": "public",
+      "each": "list",
+      "provider": "provider.aws",
+      "instances": []
+    }
+  ]
+}
