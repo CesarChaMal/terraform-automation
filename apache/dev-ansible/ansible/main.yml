@@ -1,9 +1,8 @@
-##################################################
-# DO Community Playbooks: Apache on Ubuntu 18.04
-##################################################
 ---
 - hosts: all
-  become: true
+  become: yes
+  become_user: root
+  become_method: sudo
   vars_files:
     - vars/default.yml
 

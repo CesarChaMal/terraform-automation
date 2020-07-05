@@ -12,4 +12,5 @@ apt-get update
 apt-get install -y nginx
 
 # make sure nginx is started
-service nginx start
+systemctl start nginx
+systemctl status nginx

@@ -17,7 +17,7 @@
   "provisioners": [{
     "type": "ansible",
 	"extra_arguments": [
-	"--connection=local",
+		"--connection=local",
         "-vvvv"
      ],
     "playbook_file": "ansible/main.yml",

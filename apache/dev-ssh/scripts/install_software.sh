@@ -12,4 +12,4 @@ apt-get update
 apt-get install -y apache2
 
 # make sure apache is started
-service apache2 start
+systemctl start apache2
