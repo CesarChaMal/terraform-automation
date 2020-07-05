@@ -1,0 +1,16 @@
+server {
+    listen {{ http_port }};
+    listen [::]:{{ http_port }};
+
+    server_name {{ http_host }};
+    root /var/www/{{ http_host }}/html;
+    index index.html index.htm;
+
+    location / {
+        default_type "text/html";
+        try_files $uri.html $uri $uri/ /index.html;
+    }
+
+    access_log  /var/log/nginx/{{ http_host }}_access.log  main;
+    error_log   /var/log/nginx/{{ http_host }}_error.log  error;
+}

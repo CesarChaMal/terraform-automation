@@ -3,54 +3,62 @@
   become: yes
   become_user: root
   become_method: sudo
+  vars_files:
+    - vars/default.yml
+
   tasks:
     - name: Update apt repo and cache on all Debian/Ubuntu boxes
       apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
-
+      
     - name: Upgrade all packages on servers
       apt: upgrade=dist force_apt_get=yes
 
-    - name: Check if a reboot is needed on all servers
-      register: reboot_required_file
-      stat: path=/var/run/reboot-required get_md5=no
+    - name: Install prerequisites
+      apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
+      loop: [ 'aptitude' ]
 
-    - name: Add PPA for apache.
-      apt_repository:
-#        repo: 'ppa:deadsnakes/ppa'
-        repo: 'ppa:apache/stable'
-        state: present
-        update_cache: true
-      register: nginx_ppa_added
+    - name: Install Apache
+      apt: name=apache2 update_cache=yes state=latest
 
-#    - name: Add repository of apache
-#      shell: "add-apt-repository ppa:apache/stable"
+    - name: Create document root
+      file:
+        path: "/var/www/{{ http_host }}"
+        state: directory
+        owner: "{{ app_user }}"
+        mode: '0755'
 
-    - name: Add hostname to hostfile
-      shell: "echo \"127.0.0.1 $(hostname)\" >> /etc/hosts"
+    - name: Copy index test page
+      template:
+        src: "files/index.html.j2"
+        dest: "/var/www/{{ http_host }}/index.html"
 
-    - name: Install apache
-      apt:
-        name: apache
-        state: latest
-        update_cache: true
+    - name: Set up Apache virtualhost
+      template:
+        src: "files/apache.conf.j2"
+        dest: "/etc/apache2/sites-available/{{ http_conf }}"
 
-    - name: Copy apache config files
-      copy:
-        src: "./files/apache.conf"
-        dest: "/etc/apache/apache.conf"
-        mode: 0644
+    - name: Enable new site
+      shell: /usr/sbin/a2ensite {{ http_conf }}
+      notify: Reload Apache
 
+    - name: Disable default Apache site
+      shell: /usr/sbin/a2dissite 000-default.conf
+      when: disable_default
+      notify: Reload Apache
 
-    - name: Start apache
-      service: name=apache state=restarted enabled=yes
-      
-#    - name: Reboot the box if kernel updated
-#      reboot:
-#        msg: "Reboot initiated by Ansible for kernel updates"
-#        connect_timeout: 5
-#        reboot_timeout: 300
-#        pre_reboot_delay: 0
-#        post_reboot_delay: 30
-#        test_command: uptime
-#      when: reboot_required_file.stat.exists
-      
+    - name: "UFW - Allow HTTP on port {{ http_port }}"
+      ufw:
+        rule: allow
+        port: "{{ http_port }}"
+        proto: tcp
+
+  handlers:
+    - name: Reload Apache
+      service:
+        name: apache2
+        state: reloaded
+
+    - name: Restart Apache
+      service:
+        name: apache2
+        state: restarted
