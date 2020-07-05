@@ -1,7 +1,7 @@
 module "main-vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "vpc-${var.ENV}"
+  name = "vpc-${var.APP}-${var.ENV}"
   cidr = "10.0.0.0/16"
 
   azs             = ["${var.AWS_REGION}a", "${var.AWS_REGION}b", "${var.AWS_REGION}c"]
@@ -14,5 +14,6 @@ module "main-vpc" {
   tags = {
     Terraform   = "true"
     Environment = var.ENV
+    Application = var.APP
   }
 }

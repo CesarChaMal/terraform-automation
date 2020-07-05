@@ -1,6 +1,9 @@
 variable "ENV" {
 }
 
+variable "APP" {
+}
+
 variable "INSTANCE_TYPE" {
   default = "t2.micro"
 }

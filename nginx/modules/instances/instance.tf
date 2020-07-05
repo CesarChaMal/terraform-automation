@@ -14,8 +14,9 @@ resource "aws_instance" "instance" {
   key_name = aws_key_pair.mykeypair.key_name
 
   tags = {
-    Name         = "instance-${var.ENV}"
+    Name         = "${var.APP}-${var.ENV}-instance"
     Environmnent = var.ENV
+    Application = var.APP
   }
 }
 

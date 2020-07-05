@@ -1,5 +1,5 @@
 resource "aws_elb" "elb" {
-  name            = "elb-${var.ENV}"
+  name            = "elb-${var.APP}-${var.ENV}"
   subnets         = var.PUBLIC_SUBNETS
   security_groups = [aws_security_group.allow-ssh.id, aws_security_group.nginx.id, aws_security_group.elb-securitygroup.id]
   
@@ -23,8 +23,9 @@ resource "aws_elb" "elb" {
   connection_draining_timeout = 400
   
   tags = {
-    Name         = "elb-${var.ENV}"
+    Name         = "elb-${var.APP}-${var.ENV}"
     Environmnent = var.ENV
+    Application = var.APP
   }
 }
 

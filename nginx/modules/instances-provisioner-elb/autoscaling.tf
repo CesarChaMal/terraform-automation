@@ -31,7 +31,7 @@ resource "aws_autoscaling_group" "autoscaling" {
 
   tag {
     key                 = "Name"
-    value               = "instance-${var.ENV}"
+    value               = "${var.APP}-${var.ENV}-instance"
     propagate_at_launch = true
   }
 }
