@@ -3,7 +3,7 @@ server {
     listen [::]:{{ http_port }};
 
     server_name {{ http_host }};
-    root /var/www/{{ http_host }}/html;
+    root /var/www/{{ http_host }};
     index index.html index.htm;
 
     location / {

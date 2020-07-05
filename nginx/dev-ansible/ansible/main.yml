@@ -47,7 +47,7 @@
     - name: Copy index test page
       template:
         src: "files/index.html.j2"
-        dest: "/var/www/{{ http_host }}/html/index.html"
+        dest: "/var/www/{{ http_host }}/index.html"
 
     - name: Set up Nginx virtualhost
       template:
