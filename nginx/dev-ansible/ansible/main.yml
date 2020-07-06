@@ -72,7 +72,7 @@
     
   handlers:
    - name: Test for running nginx
-      shell: >- 
+      shell: >-
             ps axuf | grep 'nginx' |grep -v "grep" | tr -d "\n" | cat
       register: test_running_nginx
       changed_when: False
