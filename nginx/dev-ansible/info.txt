@@ -22,3 +22,8 @@ sudo -- sh -c -e echo -e "127.0.0.1 $(hostname)" >> /etc/hosts
 sudo echo "127.0.0.1 $(hostname)" >> /etc/hosts
 terraform init && terraform apply -auto-approve
 sed -i 's/#//g' backend.tf
+sed -i -e 's/^/#/' backend.tf
+sed -i 's/#//g' s3.tf
+sed -i -e 's/^/#/' s3.tf
+sed -i 's/\t/    /g' ansible/main.yml
+sed -i 's/\t/    /g' ansible_custom/main.yml
