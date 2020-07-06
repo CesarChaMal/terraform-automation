@@ -1,0 +1,94 @@
+2020/07/05 21:24:35 [INFO] Terraform version: 0.12.26  
+2020/07/05 21:24:35 [INFO] Go runtime version: go1.12.13
+2020/07/05 21:24:35 [INFO] CLI args: []string{"/usr/local/bin/terraform", "apply", "-auto-approve"}
+2020/07/05 21:24:35 [DEBUG] Attempting to open CLI config file: /home/vagrant/.terraformrc
+2020/07/05 21:24:35 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2020/07/05 21:24:35 [DEBUG] checking for credentials in "/home/vagrant/.terraform.d/plugins"
+2020/07/05 21:24:35 [DEBUG] checking for credentials in "/home/vagrant/.terraform.d/plugins/linux_amd64"
+2020/07/05 21:24:35 [INFO] CLI command args: []string{"apply", "-auto-approve"}
+2020/07/05 21:24:35 [TRACE] Meta.Backend: no config given or present on disk, so returning nil config
+2020/07/05 21:24:35 [TRACE] Meta.Backend: backend has not previously been initialized in this working directory
+2020/07/05 21:24:35 [DEBUG] New state was assigned lineage "930ae554-9fa1-a4cd-f589-00cdeacd9192"
+2020/07/05 21:24:35 [TRACE] Meta.Backend: using default local state only (no backend configuration, and no existing initialized backend)
+2020/07/05 21:24:35 [TRACE] Meta.Backend: instantiated backend of type <nil>
+2020/07/05 21:24:35 [DEBUG] checking for provider in "."
+2020/07/05 21:24:35 [DEBUG] checking for provider in "/usr/local/bin"
+2020/07/05 21:24:35 [DEBUG] checking for provider in ".terraform/plugins/linux_amd64"
+2020/07/05 21:24:35 [DEBUG] checking for provider in "/home/vagrant/.terraform.d/plugins"
+2020/07/05 21:24:35 [DEBUG] checking for provider in "/home/vagrant/.terraform.d/plugins/linux_amd64"
+2020/07/05 21:24:35 [DEBUG] found provider "terraform-provider-aws_v2.69.0_x4"
+2020/07/05 21:24:35 [DEBUG] found provider "terraform-provider-azurerm_v2.17.0_x5"
+2020/07/05 21:24:35 [DEBUG] found provider "terraform-provider-google_v3.28.0_x5"
+2020/07/05 21:24:35 [DEBUG] found valid plugin: "google", "3.28.0", "/home/vagrant/.terraform.d/plugins/linux_amd64/terraform-provider-google_v3.28.0_x5"
+2020/07/05 21:24:35 [DEBUG] found valid plugin: "aws", "2.69.0", "/home/vagrant/.terraform.d/plugins/linux_amd64/terraform-provider-aws_v2.69.0_x4"
+2020/07/05 21:24:35 [DEBUG] found valid plugin: "azurerm", "2.17.0", "/home/vagrant/.terraform.d/plugins/linux_amd64/terraform-provider-azurerm_v2.17.0_x5"
+2020/07/05 21:24:35 [DEBUG] checking for provisioner in "."
+2020/07/05 21:24:35 [DEBUG] checking for provisioner in "/usr/local/bin"
+2020/07/05 21:24:35 [DEBUG] checking for provisioner in ".terraform/plugins/linux_amd64"
+2020/07/05 21:24:35 [DEBUG] checking for provisioner in "/home/vagrant/.terraform.d/plugins"
+2020/07/05 21:24:35 [DEBUG] checking for provisioner in "/home/vagrant/.terraform.d/plugins/linux_amd64"
+2020/07/05 21:24:35 [TRACE] Meta.Backend: backend <nil> does not support operations, so wrapping it in a local backend
+2020/07/05 21:24:35 [INFO] backend/local: starting Apply operation
+2020/07/05 21:24:35 [TRACE] backend/local: requesting state manager for workspace "default"
+2020/07/05 21:24:35 [TRACE] backend/local: state manager for workspace "default" will:
+ - read initial snapshot from terraform.tfstate
+ - write new snapshots to terraform.tfstate
+ - create any backup at terraform.tfstate.backup
+2020/07/05 21:24:35 [TRACE] backend/local: requesting state lock for workspace "default"
+2020/07/05 21:24:35 [ERR] Checkpoint error: open /home/vagrant/.terraform.d/checkpoint_signature: permission denied
+2020/07/05 21:24:35 [TRACE] statemgr.Filesystem: preparing to manage state snapshots at terraform.tfstate
+2020/07/05 21:24:35 [TRACE] statemgr.Filesystem: no previously-stored snapshot exists
+2020/07/05 21:24:35 [TRACE] statemgr.Filesystem: locking terraform.tfstate using fcntl flock
+2020/07/05 21:24:35 [TRACE] statemgr.Filesystem: writing lock metadata to .terraform.tfstate.lock.info
+2020/07/05 21:24:35 [TRACE] backend/local: reading remote state for workspace "default"
+2020/07/05 21:24:35 [TRACE] statemgr.Filesystem: reading latest snapshot from terraform.tfstate
+2020/07/05 21:24:35 [TRACE] statemgr.Filesystem: snapshot file has nil snapshot, but that's okay
+2020/07/05 21:24:35 [TRACE] statemgr.Filesystem: read nil snapshot
+2020/07/05 21:24:35 [TRACE] backend/local: retrieving local state snapshot for workspace "default"
+2020/07/05 21:24:35 [TRACE] backend/local: building context for current working directory
+2020/07/05 21:24:35 [TRACE] terraform.NewContext: starting
+2020/07/05 21:24:35 [TRACE] terraform.NewContext: resolving provider version selections
+2020/07/05 21:24:36 [TRACE] terraform.NewContext: loading provider schemas
+2020/07/05 21:24:36 [TRACE] LoadSchemas: retrieving schema for provider type "aws"
+2020-07-05T21:24:36.854Z [INFO]  plugin: configuring client automatic mTLS
+2020-07-05T21:24:36.911Z [DEBUG] plugin: starting plugin: path=/home/vagrant/.terraform.d/plugins/linux_amd64/terraform-provider-aws_v2.69.0_x4 args=[/home/vagrant/.terraform.d/plugins/linux_amd64/terraform-provider-aws_v2.69.0_x4]
+2020-07-05T21:24:36.914Z [DEBUG] plugin: plugin started: path=/home/vagrant/.terraform.d/plugins/linux_amd64/terraform-provider-aws_v2.69.0_x4 pid=5080
+2020-07-05T21:24:36.914Z [DEBUG] plugin: waiting for RPC address: path=/home/vagrant/.terraform.d/plugins/linux_amd64/terraform-provider-aws_v2.69.0_x4
+2020-07-05T21:24:36.986Z [INFO]  plugin.terraform-provider-aws_v2.69.0_x4: configuring server automatic mTLS: timestamp=2020-07-05T21:24:36.985Z
+2020-07-05T21:24:37.029Z [DEBUG] plugin: using plugin: version=5
+2020-07-05T21:24:37.029Z [DEBUG] plugin.terraform-provider-aws_v2.69.0_x4: plugin address: address=/tmp/plugin282275044 network=unix timestamp=2020-07-05T21:24:37.029Z
+2020/07/05 21:24:37 [TRACE] GRPCProvider: GetSchema
+2020-07-05T21:24:37.131Z [TRACE] plugin.stdio: waiting for stdio data
+2020/07/05 21:24:37 [TRACE] GRPCProvider: Close
+2020-07-05T21:24:37.260Z [WARN]  plugin.stdio: received EOF, stopping recv loop: err="rpc error: code = Unavailable desc = transport is closing"
+2020-07-05T21:24:37.263Z [DEBUG] plugin: plugin process exited: path=/home/vagrant/.terraform.d/plugins/linux_amd64/terraform-provider-aws_v2.69.0_x4 pid=5080
+2020-07-05T21:24:37.263Z [DEBUG] plugin: plugin exited
+2020/07/05 21:24:37 [TRACE] statemgr.Filesystem: removing lock metadata file .terraform.tfstate.lock.info
+2020/07/05 21:24:37 [TRACE] statemgr.Filesystem: unlocking terraform.tfstate using fcntl flock
+panic: invalid character '\x14' in string literal
+
+goroutine 21 [running]:
+github.com/hashicorp/terraform/plugin/convert.ProtoToConfigSchema(0xc0007c6420, 0xc0008fc270)
+	/opt/teamcity-agent/work/9e329aa031982669/src/github.com/hashicorp/terraform/plugin/convert/schema.go:98 +0x30d
+github.com/hashicorp/terraform/plugin/convert.ProtoToProviderSchema(...)
+	/opt/teamcity-agent/work/9e329aa031982669/src/github.com/hashicorp/terraform/plugin/convert/schema.go:76
+github.com/hashicorp/terraform/plugin.(*GRPCProvider).GetSchema(0xc0004b4230, 0x0, 0xc000aed260, 0xc0008fc240, 0xc0008fc270, 0x0, 0x0, 0x0)
+	/opt/teamcity-agent/work/9e329aa031982669/src/github.com/hashicorp/terraform/plugin/grpc_provider.go:146 +0x4d4
+github.com/hashicorp/terraform/terraform.loadProviderSchemas.func1(0xc00046ca66, 0x3)
+	/opt/teamcity-agent/work/9e329aa031982669/src/github.com/hashicorp/terraform/terraform/schemas.go:115 +0x471
+github.com/hashicorp/terraform/terraform.loadProviderSchemas(0xc0008fc000, 0xc0000164e0, 0x0, 0x2469300, 0xc0008b5cb0, 0x14, 0xbfb8af2532e59356, 0x4be75821)
+	/opt/teamcity-agent/work/9e329aa031982669/src/github.com/hashicorp/terraform/terraform/schemas.go:168 +0x1d6
+github.com/hashicorp/terraform/terraform.LoadSchemas(0xc0000164e0, 0x0, 0x2469300, 0xc0008b5cb0, 0x0, 0x1, 0x0)
+	/opt/teamcity-agent/work/9e329aa031982669/src/github.com/hashicorp/terraform/terraform/schemas.go:84 +0xc6
+github.com/hashicorp/terraform/terraform.NewContext(0xc0002714a0, 0x0, 0x0, 0xc000b79a00, 0x1)
+	/opt/teamcity-agent/work/9e329aa031982669/src/github.com/hashicorp/terraform/terraform/context.go:187 +0x492
+github.com/hashicorp/terraform/backend/local.(*Local).contextDirect(0xc0001621a0, 0xc000184540, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xc000469ca0, ...)
+	/opt/teamcity-agent/work/9e329aa031982669/src/github.com/hashicorp/terraform/backend/local/backend_local.go:161 +0x308
+github.com/hashicorp/terraform/backend/local.(*Local).context(0xc0001621a0, 0xc000184540, 0x1, 0x1, 0x3, 0xc000195500, 0x1, 0x3, 0x0)
+	/opt/teamcity-agent/work/9e329aa031982669/src/github.com/hashicorp/terraform/backend/local/backend_local.go:94 +0xd27
+github.com/hashicorp/terraform/backend/local.(*Local).opApply(0xc0001621a0, 0x2468400, 0xc00044b640, 0x2468400, 0xc00044b680, 0xc000184540, 0xc00044b600)
+	/opt/teamcity-agent/work/9e329aa031982669/src/github.com/hashicorp/terraform/backend/local/backend_apply.go:53 +0x2e4
+github.com/hashicorp/terraform/backend/local.(*Local).Operation.func1(0xc000469e10, 0xc000469e20, 0xc000469e30, 0xc000184540, 0xc0001621a0, 0xc00044b600, 0xc000469e00, 0x2468400, 0xc00044b640, 0x2468400, ...)
+	/opt/teamcity-agent/work/9e329aa031982669/src/github.com/hashicorp/terraform/backend/local/backend.go:350 +0x135
+created by github.com/hashicorp/terraform/backend/local.(*Local).Operation
+	/opt/teamcity-agent/work/9e329aa031982669/src/github.com/hashicorp/terraform/backend/local/backend.go:334 +0x36b
