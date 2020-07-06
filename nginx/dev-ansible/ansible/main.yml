@@ -58,7 +58,8 @@
       shell: "grep -rinl 'listen 80 default_server;' /etc/nginx/sites-available/default | xargs sed -i 's/listen 80 default_server;/listen 80;/g'"
 
     - name: Remove the default_server option over the default configuration
-      shell: "grep -rinl 'listen \[::\]:80 default_server;' /etc/nginx/sites-available/default | xargs sed -i 's/listen \[::\]:80 default_server;/listen \[::\]:80;/g'"
+      shell: >-
+              grep -rinl 'listen \[::\]:80 default_server;' /etc/nginx/sites-available/default | xargs sed -i 's/listen \[::\]:80 default_server;/listen \[::\]:80;/g'
 
     - name: Create symbolic link from sites-available to sites-enabled
       shell: "ln -s /etc/nginx/sites-available/{{ http_host }} /etc/nginx/sites-enabled/{{ http_host }}"
