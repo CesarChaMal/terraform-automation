@@ -3,54 +3,63 @@
   become: yes
   become_user: root
   become_method: sudo
+  
   tasks:
-    - name: Update apt repo and cache on all Debian/Ubuntu boxes
-      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+          - name: Update apt repo and cache on all Debian/Ubuntu boxes
+            apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+          
+          - name: Upgrade all packages on servers
+            apt: upgrade=dist force_apt_get=yes
+          
+          - name: Add hostname to hostfile
+            shell: "echo \"127.0.0.1 $(hostname)\" >> /etc/hosts"
+          
+          - name: Install prerequisites
+            apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
+            loop: [ 'aptitude' ]
+          
+          - name: Add PPA for Nginx.
+            apt_repository:
+#                    repo: 'ppa:deadsnakes/ppa'
+                    repo: 'ppa:nginx/stable'
+                    state: present
+                    update_cache: true
+                    register: nginx_ppa_added
+          
+          - name: Install nginx
+            apt: name=nginx update_cache=yes state=latest
+	    
+          - name: Test for running nginx
+            shell: ps axuf | grep 'nginx' | grep -v "grep" | tr -d "\n" | cat
+            register: test_running_nginx
+            changed_when: False
+            tags: restart-nginx
+    
+          - name: First check the configuration
+            shell: /usr/sbin/nginx -t
+            register: test_nginx_config
+            when: test_running_nginx.stdout != ""
+            changed_when: False
+            ignore_errors: True
+            tags: restart-nginx
+          
+          - name: Reload Nginx
+            service: name=nginx state=reloaded
+            when: test_running_nginx.stdout != "" and test_nginx_config.rc == 0
+            tags: restart-nginx
+          
+          - name: Restart Nginx
+            service: name=nginx state=restarted
+            when: test_running_nginx.stdout != "" and test_nginx_config.rc == 0
+            tags: restart-nginx
 
-    - name: Upgrade all packages on servers
-      apt: upgrade=dist force_apt_get=yes
-
-    - name: Check if a reboot is needed on all servers
-      register: reboot_required_file
-      stat: path=/var/run/reboot-required get_md5=no
-
-    - name: Add PPA for Nginx.
-      apt_repository:
-#        repo: 'ppa:deadsnakes/ppa'
-        repo: 'ppa:nginx/stable'
-        state: present
-        update_cache: true
-      register: nginx_ppa_added
-
-#    - name: Add repository of nginx
-#      shell: "add-apt-repository ppa:nginx/stable"
-
-    - name: Add hostname to hostfile
-      shell: "echo \"127.0.0.1 $(hostname)\" >> /etc/hosts"
-
-    - name: Install nginx
-      apt:
-        name: nginx
-        state: latest
-        update_cache: true
-
-    - name: Copy nginx config files
-      copy:
-        src: "./files/nginx.conf"
-        dest: "/etc/nginx/nginx.conf"
-        mode: 0644
-
-
-    - name: Start Nginx
-      service: name=nginx state=restarted enabled=yes
-      
-#    - name: Reboot the box if kernel updated
-#      reboot:
-#        msg: "Reboot initiated by Ansible for kernel updates"
-#        connect_timeout: 5
-#        reboot_timeout: 300
-#        pre_reboot_delay: 0
-#        post_reboot_delay: 30
-#        test_command: uptime
-#      when: reboot_required_file.stat.exists
+  handlers:
+          - name: Reload Nginx
+            service:
+                    name: nginx
+                    state: reloaded
+          - name: Restart Nginx
+            service:
+                    name: nginx
+                    state: restarted
       

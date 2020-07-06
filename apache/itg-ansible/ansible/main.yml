@@ -4,38 +4,54 @@
   become_user: root
   become_method: sudo
   vars_files:
-    - vars/default.yml
+          - vars/default.yml
 
   tasks:
-    - name: Update apt repo and cache on all Debian/Ubuntu boxes
-      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
-      
-    - name: Upgrade all packages on servers
-      apt: upgrade=dist force_apt_get=yes
+          - name: Update apt repo and cache on all Debian/Ubuntu boxes
+            apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+          
+          - name: Upgrade all packages on servers
+            apt: upgrade=dist force_apt_get=yes
+          
+          - name: Add hostname to hostfile
+            shell: "echo \"127.0.0.1 $(hostname)\" >> /etc/hosts"
+          
+          - name: Install prerequisites
+            apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
+            loop: [ 'aptitude' ]
+          
+          - name: Install Apache
+            apt: name=apache2 update_cache=yes state=latest
+          
+          - name: "UFW - Allow HTTP on port {{ http_port }}"
+            ufw:
+                    rule: allow
+                    port: "{{ http_port }}"
+                    proto: tcp
 
-    - name: Add hostname to hostfile
-      shell: "echo \"127.0.0.1 $(hostname)\" >> /etc/hosts"
-
-    - name: Install prerequisites
-      apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
-      loop: [ 'aptitude' ]
-
-    - name: Install Apache
-      apt: name=apache2 update_cache=yes state=latest
-
-    - name: "UFW - Allow HTTP on port {{ http_port }}"
-      ufw:
-        rule: allow
-        port: "{{ http_port }}"
-        proto: tcp
-
+          - name: Test for running Apache
+            shell: ps axuf | grep 'apache2' | grep -v "grep" | tr -d "\n" | cat
+            register: test_running_apache
+            changed_when: False
+            tags: restart-apache
+         
+          - name: Reload Apache
+            service: name=apache2 state=reloaded
+            when: test_running_apache.stdout != ""
+            tags: restart-apache
+          
+          - name: Restart Apache
+            service: name=apache2 state=restarted
+            when: test_running_apache.stdout != ""
+            tags: restart-apache
+                    
   handlers:
-    - name: Reload Apache
-      service:
-        name: apache2
-        state: reloaded
-
-    - name: Restart Apache
-      service:
-        name: apache2
-        state: restarted
+          - name: Reload Apache
+            service:
+                    name: apache2
+                    state: reloaded
+          
+          - name: Restart Apache
+            service:
+                    name: apache2
+                    state: restarted
