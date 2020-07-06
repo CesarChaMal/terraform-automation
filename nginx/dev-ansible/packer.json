@@ -27,6 +27,7 @@
    {
     "type": "ansible",
 	"extra_arguments": [
+        "-vvvv"
      ],
     "playbook_file": "ansible/main.yml",
     "pause_before": "10s"

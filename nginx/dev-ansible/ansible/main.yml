@@ -44,13 +44,13 @@
           
           #- name: Reload Nginx
             #service: name=nginx state=reloaded
-            #shell: "/etc/init.d/nginx reloaded"
+            #shell: "/etc/init.d/nginx reload"
             #when: test_running_nginx.stdout != "" and test_nginx_config.rc == 0
             #tags: restart-nginx
           
           - name: Restart Nginx
-            service: name=nginx state=restarted
-            #shell: "/etc/init.d/nginx reloaded"
+            #service: name=nginx state=restarted
+            shell: "/etc/init.d/nginx restart"
             #when: test_running_nginx.stdout != "" and test_nginx_config.rc == 0
             #tags: restart-nginx
 
