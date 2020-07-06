@@ -83,13 +83,15 @@
             ignore_errors: True
             tags: restart-nginx
           
-  handlers:
           - name: Reload Nginx
-            service: name=nginx state=reloaded
+            #service: name=nginx state=reloaded
+            shell: "/etc/init.d/nginx reloaded"
             when: test_running_nginx.stdout != "" and test_nginx_config.rc == 0
             tags: restart-nginx
           
           - name: Restart Nginx
-            service: name=nginx state=restarted
+            #service: name=nginx state=restarted
+            shell: "/etc/init.d/nginx reloaded"
             when: test_running_nginx.stdout != "" and test_nginx_config.rc == 0
             tags: restart-nginx
+

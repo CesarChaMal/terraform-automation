@@ -1,4 +1,4 @@
-Instance name: 
-Public ip: 
-Private dns: 
-Zone: 
+Instance name:  nginx-dev-instance
+Public ip:  3.122.206.52
+Private dns:  ip-10-0-101-115.eu-central-1.compute.internal
+Zone:  eu-central-1a
