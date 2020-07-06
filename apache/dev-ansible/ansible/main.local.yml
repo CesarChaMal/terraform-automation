@@ -35,7 +35,6 @@
             changed_when: False
             tags: restart-apache
          
-  handlers:
           - name: Reload Apache
             service: name=apache2 state=reloaded
             when: test_running_apache.stdout != ""
