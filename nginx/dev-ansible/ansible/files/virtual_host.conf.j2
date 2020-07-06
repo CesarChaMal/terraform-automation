@@ -1,6 +1,6 @@
 server {
-    listen {{ http_port }};
-    listen [::]:{{ http_port }};
+    listen {{ http_port }} default_server;
+    listen [::]:{{ http_port }} default_server;
 
     server_name {{ http_host }};
     root /var/www/{{ http_host }};

@@ -1,6 +1,5 @@
 ---
 app_user: "ubuntu"
 http_host: "localhost"
-http_conf: "localhost.conf"
 http_port: "80"
 disable_default: true
