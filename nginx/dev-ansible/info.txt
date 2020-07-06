@@ -1,4 +1,5 @@
 ansible-playbook ansible/main.yml --connection=local
+ansible-playbook ansible/main.local.yml --connection=local
 ansible-playbook ansible/main.yml --syntax-check
 sudo nginx -t
 packer build -machine-readable packer.json
