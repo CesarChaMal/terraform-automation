@@ -20,11 +20,10 @@
           
           - name: Add PPA for Nginx.
             apt_repository:
-#                    repo: 'ppa:deadsnakes/ppa'
-                    repo: 'ppa:nginx/stable'
-                    state: present
-                    update_cache: true
-                    register: nginx_ppa_added
+#            repo: 'ppa:deadsnakes/ppa'
+             repo: 'ppa:nginx/stable'
+             state: present
+             update_cache: true
           
           - name: Install nginx
             apt: name=nginx update_cache=yes state=latest

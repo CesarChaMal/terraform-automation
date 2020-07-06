@@ -1,0 +1,83 @@
+---
+- hosts: all
+  become: yes
+  become_user: root
+  become_method: sudo
+  vars_files:
+          - vars/default.yml
+
+  tasks:
+          - name: Update apt repo and cache on all Debian/Ubuntu boxes
+            apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+          
+          - name: Upgrade all packages on servers
+            apt: upgrade=dist force_apt_get=yes
+          
+          - name: Add hostname to hostfile
+            shell: "echo \"127.0.0.1 $(hostname)\" >> /etc/hosts"
+          
+          - name: Install prerequisites
+            apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
+            loop: [ 'aptitude' ]
+          
+          - name: Install Apache
+            apt: name=apache2 update_cache=yes state=latest
+          
+          - name: Create document root
+            file:
+                    path: "/var/www/{{ http_host }}"
+                    state: directory
+                    owner: "{{ app_user }}"
+                    mode: '0755'
+          
+          - name: Copy index test page
+            template:
+                    src: "files/index.html.j2"
+                    dest: "/var/www/{{ http_host }}/index.html"
+          
+          - name: Set up Apache virtualhost
+            template:
+                    src: "files/apache.conf.j2"
+                    dest: "/etc/apache2/sites-available/{{ http_conf }}"
+          
+          - name: Enable new site
+            shell: /usr/sbin/a2ensite {{ http_conf }}
+            notify: Reload Apache
+          
+          - name: Disable default Apache site
+            shell: /usr/sbin/a2dissite 000-default.conf
+            when: disable_default
+            notify: Reload Apache
+          
+          - name: "UFW - Allow HTTP on port {{ http_port }}"
+            ufw:
+                    rule: allow
+                    port: "{{ http_port }}"
+                    proto: tcp
+
+          - name: Test for running Apache
+            shell: ps axuf | grep 'apache2' | grep -v "grep" | tr -d "\n" | cat
+            register: test_running_apache
+            changed_when: False
+            tags: restart-apache
+         
+          - name: Reload Apache
+            service: name=apache2 state=reloaded
+            when: test_running_apache.stdout != ""
+            tags: restart-apache
+          
+          - name: Restart Apache
+            service: name=apache2 state=restarted
+            when: test_running_apache.stdout != ""
+            tags: restart-apache
+                    
+  handlers:
+          - name: Reload Apache
+            service:
+                    name: apache2
+                    state: reloaded
+          
+          - name: Restart Apache
+            service:
+                    name: apache2
+                    state: restarted

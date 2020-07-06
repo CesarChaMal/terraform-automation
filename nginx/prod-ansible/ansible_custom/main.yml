@@ -1,0 +1,105 @@
+---
+- hosts: all
+  become: yes
+  become_user: root
+  become_method: sudo
+  vars_files:
+          - vars/default.yml
+
+  tasks:
+          - name: Update apt repo and cache on all Debian/Ubuntu boxes
+            apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+          
+          - name: Upgrade all packages on servers
+            apt: upgrade=dist force_apt_get=yes
+          
+          - name: Add hostname to hostfile
+            shell: "echo \"127.0.0.1 $(hostname)\" >> /etc/hosts"
+          
+          - name: Install prerequisites
+            apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
+            loop: [ 'aptitude' ]
+          
+          - name: Add PPA for Nginx.
+            apt_repository:
+#            repo: 'ppa:deadsnakes/ppa'
+             repo: 'ppa:nginx/stable'
+             state: present
+             update_cache: true
+          
+          - name: Install nginx
+            apt: name=nginx update_cache=yes state=latest
+          
+          - name: Copy Nginx config files
+            template:
+                    src: "files/nginx.conf.j2"
+                    dest: "/etc/nginx/nginx.conf"
+                    mode: 0644
+          
+          - name: Create document root
+            file:
+                    path: "/var/www/{{ http_host }}"
+                    state: directory
+                    owner: "{{ app_user }}"
+                    mode: '0755'
+          
+          - name: Copy index test page
+            template:
+                    src: "files/index.html.j2"
+                    dest: "/var/www/{{ http_host }}/index.html"
+          
+          - name: Set up Nginx virtualhost
+            template:
+                    src: "files/virtual_host.conf.j2"
+                    dest: "/etc/nginx/sites-available/{{ http_host }}"
+          
+          - name: Remove the default_server option over the default configuration
+            shell: "grep -rinl 'listen 80 default_server;' /etc/nginx/sites-available/default | xargs sed -i 's/listen 80 default_server;/listen 80;/g'"
+          
+          - name: Remove the default_server option over the default configuration
+            shell: >-
+              grep -rinl 'listen \[::\]:80 default_server;' /etc/nginx/sites-available/default | xargs sed -i 's/listen \[::\]:80 default_server;/listen \[::\]:80;/g'
+          
+#          - name: Create symbolic link from sites-available to sites-enabled
+#            shell: "ln -s /etc/nginx/sites-available/{{ http_host }} /etc/nginx/sites-enabled/{{ http_host }}"
+          
+          - name: Create symbolic link 
+            file:
+                    src: "/etc/nginx/sites-available/{{ http_host }}"
+                    dest: "/etc/nginx/sites-enabled/{{ http_host }}"
+                    state: link
+          
+          - name: Test for running nginx
+            shell: ps axuf | grep 'nginx' | grep -v "grep" | tr -d "\n" | cat
+            register: test_running_nginx
+            changed_when: False
+            tags: restart-nginx
+    
+          - name: First check the configuration
+            shell: /usr/sbin/nginx -t
+            register: test_nginx_config
+            when: test_running_nginx.stdout != ""
+            changed_when: False
+            ignore_errors: True
+            tags: restart-nginx
+          
+          - name: Reload Nginx
+            service: name=nginx state=reloaded
+            when: test_running_nginx.stdout != "" and test_nginx_config.rc == 0
+            tags: restart-nginx
+          
+          - name: Restart Nginx
+            service: name=nginx state=restarted
+            when: test_running_nginx.stdout != "" and test_nginx_config.rc == 0
+            tags: restart-nginx
+
+  handlers:
+          - name: Reload Nginx
+            service:
+                    name: nginx
+                    state: reloaded
+          - name: Restart Nginx
+            service:
+                    name: nginx
+                    state: restarted
+      

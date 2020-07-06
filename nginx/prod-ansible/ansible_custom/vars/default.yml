@@ -1,0 +1,5 @@
+---
+app_user: "ubuntu"
+http_host: "localhost"
+http_port: "80"
+disable_default: true
