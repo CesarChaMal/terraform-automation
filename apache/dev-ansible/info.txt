@@ -2,10 +2,12 @@ ansible-playbook ansible/main.yml --connection=local
 ansible-playbook ansible/main.local.yml --connection=local
 ansible-playbook ansible/main.yml --syntax-check
 ansible-playbook ansible/main.yml --check
+ansible-playbook ansible/main.local.yml --syntax-check
 ansible-playbook ansible_custom/main.yml --connection=local
 ansible-playbook ansible_custom/main.local.yml --connection=local
 ansible-playbook ansible_custom/main.yml --syntax-check
-ansible-playbook ansible_custom/main.yml --check
+ansible-playbook ansible_custom/main.yml --syntax-check
+ansible-playbook ansible_custom/main.local.yml --connection=local
 ansible-lint -x $(echo $(ansible-lint -L | awk -F':' '{print $1}' | grep '^[^ ]') | tr ' ' ',') ansible/main.yml
 sudo nginx -t
 packer build -machine-readable packer.json
