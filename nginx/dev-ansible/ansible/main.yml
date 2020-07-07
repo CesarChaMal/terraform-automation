@@ -3,7 +3,9 @@
   become: yes
   become_user: root
   become_method: sudo
-  
+  vars_files:
+          - vars/default.yml
+
   tasks:
           - name: Update apt repo and cache on all Debian/Ubuntu boxes
             apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
@@ -28,6 +30,12 @@
           - name: Install nginx
             apt: name=nginx update_cache=yes state=latest
         
+          - name: "UFW - Allow HTTP on port {{ http_port }}"
+            ufw:
+             rule: allow
+             port: "{{ http_port }}"
+             proto: tcp
+
           - name: Test for running nginx
             shell: ps axuf | grep 'nginx' | grep -v "grep" | tr -d "\n" | cat
             register: test_running_nginx

@@ -1,4 +1,4 @@
 Instance name:  nginx-dev-instance
-Public ip:  18.185.184.71
-Private dns:  ip-10-0-101-49.eu-central-1.compute.internal
+Public ip:  18.197.174.73
+Private dns:  ip-10-0-101-210.eu-central-1.compute.internal
 Zone:  eu-central-1a
