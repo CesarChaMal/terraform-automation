@@ -14,9 +14,9 @@
           - name: Add hostname to hostfile
             shell: "echo \"127.0.0.1 $(hostname)\" >> /etc/hosts"
           
-          - name: Install prerequisites
-            apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
-            loop: [ 'aptitude' ]
+          #- name: Install prerequisites
+            #apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
+            #loop: [ 'aptitude' ]
           
           - name: Add PPA for Nginx.
             apt_repository:
