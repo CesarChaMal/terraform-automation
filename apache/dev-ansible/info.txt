@@ -10,7 +10,7 @@ ansible-playbook ansible_custom/main.yml --syntax-check
 ansible-playbook ansible_custom/main.local.yml --connection=local
 ansible-lint -x $(echo $(ansible-lint -L | awk -F':' '{print $1}' | grep '^[^ ]') | tr ' ' ',') ansible/main.yml
 sudo nginx -t
-ps axuf | grep 'nginx' | grep -v "grep" | tr -d "\n" | cat
+sudo ps axuf | grep 'nginx' | grep -v "grep" | tr -d "\n" | cat
 packer build -machine-readable packer.json
 packer build -machine-readable packer_custom.json
 sudo apt-get purge -y nginx nginx-common
