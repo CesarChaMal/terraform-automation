@@ -32,7 +32,7 @@
 #    tags                        = {
 #        "Application"  = "apache"
 #        "Environmnent" = "dev"
-#        "Name"         = "elb-apache-dev"
+#        "Name"         = "elb-tomcat-itg"
 #    }
 
 

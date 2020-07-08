@@ -12,6 +12,11 @@ resource "aws_instance" "instance" {
   key_name = aws_key_pair.mykeypair.key_name
 
   provisioner "file" {
+    source      = var.PATH_CONF
+    destination = "/tmp"
+  }
+
+  provisioner "file" {
     source      = var.PATH_SCRIPT
     destination = "/tmp/script.sh"
   }

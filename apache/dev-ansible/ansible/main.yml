@@ -25,9 +25,9 @@
           
           - name: "UFW - Allow HTTP on port {{ http_port }}"
             ufw:
-            rule: allow
-            port: "{{ http_port }}"
-            proto: tcp
+             rule: allow
+             port: "{{ http_port }}"
+             proto: tcp
 
           - name: Test for running Apache
             shell: ps axuf | grep 'apache2' | grep -v "grep" | tr -d "\n" | cat

@@ -15,21 +15,21 @@
     "ami_name": "tomcat-dev-instance-{{timestamp}}"
   }],
   "provisioners": [
-   {
-     "type": "shell",
-     "inline": [
-       "sleep 20",
-       "sudo apt-get update",
-       "sudo apt-get install python-simplejson -yq",
-       "sudo apt-get install python -yq"
-     ]
-   },
-   {
-    "type": "ansible",
-	"extra_arguments": [
-     ],
-    "playbook_file": "ansible/main.yml",
-    "pause_before": "10s"
-   }
+	   {
+		 "type": "shell",
+		 "inline": [
+		   "sleep 20",
+		   "sudo apt-get update",
+		   "sudo apt-get install python-simplejson -yq",
+		   "sudo apt-get install python -yq"
+		 ]
+	   },
+	   {
+		"type": "ansible",
+		"extra_arguments": [
+		 ],
+		"playbook_file": "ansible/main.yml",
+		"pause_before": "10s"
+	   }
   ]
 }

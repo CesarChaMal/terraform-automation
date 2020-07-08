@@ -14,10 +14,17 @@
     "ssh_username": "ubuntu",
     "ami_name": "apache-dev-instance-{{timestamp}}"
   }],
-  "provisioners": [{
-    "type": "shell",
-    "scripts": [  "scripts/install_software.sh"   ],
-    "execute_command": "{{ .Vars }} sudo -E sh '{{ .Path }}'",
-    "pause_before": "10s"
-  }]
+  "provisioners": [
+	   {
+		"type": "file",
+		"source": "conf/tomcat.service",
+		"destination": "/tmp/conf/tomcat.service"
+	   },
+	   {
+		"type": "shell",
+		"scripts": [  "scripts/install_software.sh"   ],
+		"execute_command": "{{ .Vars }} sudo -E sh '{{ .Path }}'",
+		"pause_before": "10s"
+	   }
+   ]
 }

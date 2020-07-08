@@ -14,10 +14,27 @@
     "ssh_username": "ubuntu",
     "ami_name": "jboss-dev-instance-{{timestamp}}"
   }],
-  "provisioners": [{
-    "type": "shell",
-    "scripts": [  "scripts/install_software.sh"   ],
-    "execute_command": "{{ .Vars }} sudo -E sh '{{ .Path }}'",
-    "pause_before": "10s"
-  }]
+  "provisioners": [
+	   {
+		"type": "file",
+		"source": "conf/wildfly.conf",
+		"destination": "/tmp/conf/wildfly.conf"
+	   },
+	   {
+		"type": "file",
+		"source": "conf/launch.sh",
+		"destination": "/tmp/conf/launch.sh"
+	   },
+	   {
+		"type": "file",
+		"source": "conf/wildfly.service",
+		"destination": "/tmp/conf/wildfly.service"
+	   },
+	   {
+		"type": "shell",
+		"scripts": [  "scripts/install_software.sh"   ],
+		"execute_command": "{{ .Vars }} sudo -E sh '{{ .Path }}'",
+		"pause_before": "10s"
+	   }
+   ]
 }

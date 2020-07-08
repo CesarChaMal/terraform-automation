@@ -5,9 +5,19 @@ data "template_file" "script" {
   }
 }
 
+data "template_file" "config" {
+  template = file(var.PATH_CONF/tomcat.service.cfg)
+}
+
 data "template_cloudinit_config" "config" {
   gzip          = false
   base64_encode = false
+
+  part {
+    filename     = "tomcat.service.cfg"
+    content_type = "text/cloud-config"
+    content      = data.template_file.config.rendered
+  }
 
   part {
     content_type = "text/x-shellscript"

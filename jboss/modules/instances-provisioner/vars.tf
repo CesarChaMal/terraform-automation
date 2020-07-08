@@ -27,6 +27,10 @@ variable "PATH_SCRIPT" {
   default = "scripts/install_software.sh"
 }
 
+variable "PATH_CONF" {
+  default = "conf"
+}
+
 variable "INSTANCE_USERNAME" {
 	default = "ubuntu"
 }

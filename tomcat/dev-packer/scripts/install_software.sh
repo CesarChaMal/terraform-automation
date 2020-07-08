@@ -1,4 +1,25 @@
 #!/bin/bash
 echo "127.0.0.1 $(hostname)" >> /etc/hosts
 apt-get update
-apt-get install -y tomcat
+apt-get install -y default-jdk
+mkdir -p /opt/tomcat
+groupadd tomcat
+useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
+wget http://apache.mirror.digitalpacific.com.au/tomcat/tomcat-8/v8.5.56/bin/apache-tomcat-8.5.56.tar.gz
+tar -xzvf apache-tomcat-8.5.56.tar.gz
+mv apache-tomcat-8.5.56/* /opt/tomcat
+ln -s /opt/tomcat /opt/tomcat/latest
+chown -R tomcat /opt/tomcat
+chgrp -R tomcat /opt/tomcat
+chmod -R 755 /opt/tomcat
+sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'
+echo "export CATALINA_HOME="/opt/tomcat"" >> ~/.bashrc
+source ~/.bashrc
+ls -ltra /tmp/conf/tomcat.service
+cat /tmp/conf/tomcat.service > /etc/systemd/system/tomcat.service
+cat /etc/systemd/system/tomcat.service
+
+systemctl daemon-reload
+systemctl enable tomcat
+systemctl start tomcat
+ufw allow 8080/tcp

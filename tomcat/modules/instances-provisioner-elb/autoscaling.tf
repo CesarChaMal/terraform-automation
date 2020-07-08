@@ -5,14 +5,6 @@ resource "aws_launch_configuration" "launchconfig" {
   key_name        = aws_key_pair.mykeypair.key_name
   security_groups = [aws_security_group.allow-ssh.id, aws_security_group.tomcat.id, aws_security_group.elb-securitygroup.id]
   user_data       = data.template_cloudinit_config.config.rendered
-  #user_data       = "#!/bin/bash\napt-get update\napt-get -y install net-tools tomcat\nMYIP=`ifconfig | grep -E '(inet 10)|(addr:10)' | awk '{ print $2 }' | cut -d ':' -f2`\necho 'this is: '$MYIP > /var/www/html/index.html"
-  #user_data       = "#!/bin/bash\napt-get update\napt-get -y install tomcat\nservice tomcat start"
-#  user_data       = <<EOF
-#!/bin/bash
-#apt-get update
-#apt-get -y install tomcat
-#service tomcat start
-#EOF
   lifecycle {
     create_before_destroy = true
   }
