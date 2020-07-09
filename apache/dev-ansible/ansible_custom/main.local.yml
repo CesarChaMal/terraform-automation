@@ -60,7 +60,7 @@
             register: test_running_apache
             changed_when: False
             tags: restart-apache
-handlers:
+  handlers:
           - name: Reload Apache
             service: name=apache2 state=reloaded enabled=true
             when: test_running_apache.stdout != ""
