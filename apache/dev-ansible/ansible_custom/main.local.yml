@@ -25,16 +25,16 @@
           
           - name: Create document root
             file:
-                    path: "/var/www/{{ http_host }}"
-                    state: directory
-                    owner: "{{ app_user }}"
-                    mode: '0755'
+             path: "/var/www/{{ http_host }}"
+             state: directory
+             owner: "{{ app_user }}"
+             mode: '0755'
           
           - name: Copy index test page
             template:
-                    src: "files/index.html.j2"
-                    dest: "/var/www/{{ http_host }}/index.html"
-          
+             src: "files/index.html.j2"
+             dest: "/var/www/{{ http_host }}/index.html"
+  
           - name: Set up Apache virtualhost
             template:
                     src: "files/apache.conf.j2"
@@ -51,9 +51,9 @@
           
           - name: "UFW - Allow HTTP on port {{ http_port }}"
             ufw:
-                    rule: allow
-                    port: "{{ http_port }}"
-                    proto: tcp
+             rule: allow
+             port: "{{ http_port }}"
+             proto: tcp
 
           - name: Test for running Apache
             shell: ps axuf | grep 'apache2' | grep -v "grep" | tr -d "\n" | cat
@@ -62,22 +62,11 @@
             tags: restart-apache
          
           - name: Reload Apache
-            service: name=apache2 state=reloaded
+            service: name=apache2 state=reloaded enabled=true
             when: test_running_apache.stdout != ""
             tags: restart-apache
           
           - name: Restart Apache
-            service: name=apache2 state=restarted
+            service: name=apache2 state=restarted enabled=true
             when: test_running_apache.stdout != ""
             tags: restart-apache
-                    
-  handlers:
-          - name: Reload Apache
-            service:
-            name: apache2
-            state: reloaded
-          
-          - name: Restart Apache
-            service:
-            name: apache2
-            state: restarted

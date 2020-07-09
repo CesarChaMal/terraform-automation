@@ -62,22 +62,11 @@
             tags: restart-apache
          
           - name: Reload Apache
-            service: name=apache2 state=reloaded
+            service: name=apache2 state=reloaded enabled=true
             when: test_running_apache.stdout != ""
             tags: restart-apache
           
           - name: Restart Apache
-            service: name=apache2 state=restarted
+            service: name=apache2 state=restarted enabled=true
             when: test_running_apache.stdout != ""
             tags: restart-apache
-                    
-  handlers:
-          - name: Reload Apache
-            service:
-            name: apache2
-            state: reloaded
-          
-          - name: Restart Apache
-            service:
-            name: apache2
-            state: restarted
