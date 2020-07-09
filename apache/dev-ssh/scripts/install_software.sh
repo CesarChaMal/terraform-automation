@@ -14,7 +14,8 @@ mkdir -p /var/www/localhost
 cp /var/www/html/index.html /var/www/localhost/index.html
 cat /tmp/conf/apache.conf > /etc/apache2/sites-available/apache.conf
 cat /etc/apache2/sites-available/apache.conf
-mkdir -p /usr/sbin/a2ensite
+/usr/sbin/a2ensite /etc/apache2/sites-available/apache.conf
+/usr/sbin/a2dissite 000-default.conf
 
 systemctl daemon-reload
 systemctl enable apache2
