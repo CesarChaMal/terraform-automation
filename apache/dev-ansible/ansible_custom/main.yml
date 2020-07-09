@@ -25,16 +25,16 @@
           
           - name: Create document root
             file:
-                    path: "/var/www/{{ http_host }}"
-                    state: directory
-                    owner: "{{ app_user }}"
-                    mode: '0755'
+             path: "/var/www/{{ http_host }}"
+             state: directory
+             owner: "{{ app_user }}"
+             mode: '0755'
           
           - name: Copy index test page
             template:
-                    src: "files/index.html.j2"
-                    dest: "/var/www/{{ http_host }}/index.html"
-          
+             src: "files/index.html.j2"
+             dest: "/var/www/{{ http_host }}/index.html"
+  
           - name: Set up Apache virtualhost
             template:
                     src: "files/apache.conf.j2"

@@ -10,6 +10,8 @@ done
 echo "127.0.0.1 $(hostname)" >> /etc/hosts
 apt-get update
 apt-get install -y apache2
+mkdir -p /var/www/localhost
+
 
 # make sure apache is started
 systemctl start apache2
