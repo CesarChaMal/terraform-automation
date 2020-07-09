@@ -11,11 +11,12 @@ echo "127.0.0.1 $(hostname)" >> /etc/hosts
 apt-get update
 apt-get install -y apache2
 mkdir -p /var/www/localhost
-cp /var/www/html/index.html /var/www/localhost/index.html
+#cp /var/www/html/index.html /var/www/localhost/index.html
+cp /tmp/conf/index.html /var/www/localhost/index.html
 cat /tmp/conf/apache.conf > /etc/apache2/sites-available/apache.conf
 cat /etc/apache2/sites-available/apache.conf
-/usr/sbin/a2ensite /etc/apache2/sites-available/apache.conf
-/usr/sbin/a2dissite 000-default.conf
+sudo a2ensite localhost
+service apache2 reload
 
 systemctl daemon-reload
 systemctl enable apache2
