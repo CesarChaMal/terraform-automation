@@ -68,7 +68,7 @@
           - name: copyng the config files
             template:
              src: "files/tomcat.service.j2"
-             dest: "/etc/systemd/system/tomcat.service.html"
+             dest: "/etc/systemd/system/tomcat.service"
           
           - name: "UFW - Allow HTTP on port {{ http_port }}"
             ufw:
