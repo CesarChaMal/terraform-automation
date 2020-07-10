@@ -14,10 +14,31 @@
     "ssh_username": "ubuntu",
     "ami_name": "nginx-itg-instance-{{timestamp}}"
   }],
-  "provisioners": [{
-    "type": "shell",
-    "scripts": [  "scripts/install_software.sh"   ],
-    "execute_command": "{{ .Vars }} sudo -E sh '{{ .Path }}'",
-    "pause_before": "10s"
-  }]
+  "provisioners": [
+	   {
+		"type": "shell",
+		"inline": [  "mkdir -p /tmp/conf"   ]
+	   },
+	   {
+		"type": "file",
+		"source": "conf/nginx.conf",
+		"destination": "/tmp/conf/nginx.conf"
+	   },
+	   {
+		"type": "file",
+		"source": "conf/virtual_host.conf",
+		"destination": "/tmp/conf/virtual_host.conf"
+	   },
+	   {
+		"type": "file",
+		"source": "conf/index.html",
+		"destination": "/tmp/conf/index.html"
+	   },
+	   {
+		"type": "shell",
+		"scripts": [  "scripts/install_software.sh"   ],
+		"execute_command": "{{ .Vars }} sudo -E sh '{{ .Path }}'",
+		"pause_before": "10s"
+	   }
+   ]
 }

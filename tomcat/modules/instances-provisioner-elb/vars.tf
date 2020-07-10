@@ -27,10 +27,6 @@ variable "PATH_SCRIPT" {
   default = "scripts/install_software.sh"
 }
 
-variable "PATH_CONF" {
-  default = "conf/tomcat.service.cfg"
-}
-
 variable "INSTANCE_USERNAME" {
 	default = "ubuntu"
 }

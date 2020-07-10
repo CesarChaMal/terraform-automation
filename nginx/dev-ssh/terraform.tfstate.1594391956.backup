@@ -1,8 +1,8 @@
 {
   "version": 4,
   "terraform_version": "0.12.26",
-  "serial": 25,
-  "lineage": "775d7762-f8d7-d964-20bb-dc064f6e0b09",
+  "serial": 232,
+  "lineage": "6e4b6b7a-1501-babc-40ef-869f2edca08b",
   "outputs": {},
   "resources": [
     {
@@ -672,100 +672,12 @@
       "instances": []
     },
     {
-      "module": "module.instances",
+      "module": "module.instances-provisioner",
       "mode": "managed",
       "type": "aws_instance",
       "name": "instance",
       "provider": "provider.aws",
-      "instances": [
-        {
-          "schema_version": 1,
-          "attributes": {
-            "ami": "ami-0cb8a26fc5475ff06",
-            "arn": "arn:aws:ec2:eu-central-1:774145483743:instance/i-07e3acd72ebc3ded3",
-            "associate_public_ip_address": true,
-            "availability_zone": "eu-central-1a",
-            "cpu_core_count": 1,
-            "cpu_threads_per_core": 1,
-            "credit_specification": [
-              {
-                "cpu_credits": "standard"
-              }
-            ],
-            "disable_api_termination": false,
-            "ebs_block_device": [],
-            "ebs_optimized": false,
-            "ephemeral_block_device": [],
-            "get_password_data": false,
-            "hibernation": false,
-            "host_id": null,
-            "iam_instance_profile": "",
-            "id": "i-07e3acd72ebc3ded3",
-            "instance_initiated_shutdown_behavior": null,
-            "instance_state": "running",
-            "instance_type": "t2.micro",
-            "ipv6_address_count": 0,
-            "ipv6_addresses": [],
-            "key_name": "mykeypair-tomcat-dev",
-            "metadata_options": [
-              {
-                "http_endpoint": "enabled",
-                "http_put_response_hop_limit": 1,
-                "http_tokens": "optional"
-              }
-            ],
-            "monitoring": false,
-            "network_interface": [],
-            "network_interface_id": null,
-            "outpost_arn": "",
-            "password_data": "",
-            "placement_group": "",
-            "primary_network_interface_id": "eni-0a13965ee3e43bbba",
-            "private_dns": "ip-10-0-101-62.eu-central-1.compute.internal",
-            "private_ip": "10.0.101.62",
-            "public_dns": "",
-            "public_ip": "3.120.178.202",
-            "root_block_device": [
-              {
-                "delete_on_termination": true,
-                "device_name": "/dev/sda1",
-                "encrypted": false,
-                "iops": 100,
-                "kms_key_id": "",
-                "volume_id": "vol-02d2db6bc155ac03c",
-                "volume_size": 8,
-                "volume_type": "gp2"
-              }
-            ],
-            "security_groups": [],
-            "source_dest_check": true,
-            "subnet_id": "subnet-08c08ca83f3267037",
-            "tags": {
-              "Application": "tomcat",
-              "Environmnent": "dev",
-              "Name": "tomcat-dev-instance"
-            },
-            "tenancy": "default",
-            "timeouts": null,
-            "user_data": "21a09213dcda8a81ff7f31c47f3d70b1a3299f64",
-            "user_data_base64": null,
-            "volume_tags": {},
-            "vpc_security_group_ids": [
-              "sg-054b362cd3684dafd",
-              "sg-0620e3db27f9975d1"
-            ]
-          },
-          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMCwidXBkYXRlIjo2MDAwMDAwMDAwMDB9LCJzY2hlbWFfdmVyc2lvbiI6IjEifQ==",
-          "dependencies": [
-            "module.instances.aws_key_pair.mykeypair",
-            "module.instances.aws_security_group.allow-ssh",
-            "module.instances.aws_security_group.tomcat",
-            "module.main-vpc.module.main-vpc.aws_subnet.public",
-            "module.main-vpc.module.main-vpc.aws_vpc.this",
-            "module.main-vpc.module.main-vpc.aws_vpc_ipv4_cidr_block_association.this"
-          ]
-        }
-      ]
+      "instances": []
     },
     {
       "module": "module.main-vpc.module.main-vpc",
@@ -779,16 +691,16 @@
           "index_key": 0,
           "schema_version": 0,
           "attributes": {
-            "arn": "arn:aws:ec2:eu-central-1:774145483743:internet-gateway/igw-0fc9836c9b0d9ed1c",
-            "id": "igw-0fc9836c9b0d9ed1c",
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:internet-gateway/igw-06e5bd9ec51c50408",
+            "id": "igw-06e5bd9ec51c50408",
             "owner_id": "774145483743",
             "tags": {
-              "Application": "tomcat",
+              "Application": "nginx",
               "Environment": "dev",
-              "Name": "vpc-tomcat-dev",
+              "Name": "vpc-nginx-dev",
               "Terraform": "true"
             },
-            "vpc_id": "vpc-03e425ff08fd88613"
+            "vpc_id": "vpc-0c898875dea993596"
           },
           "private": "bnVsbA==",
           "dependencies": [
@@ -799,7 +711,7 @@
       ]
     },
     {
-      "module": "module.instances",
+      "module": "module.instances-provisioner",
       "mode": "managed",
       "type": "aws_key_pair",
       "name": "mykeypair",
@@ -808,12 +720,12 @@
         {
           "schema_version": 1,
           "attributes": {
-            "arn": "arn:aws:ec2:eu-central-1:774145483743:key-pair/mykeypair-tomcat-dev",
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:key-pair/mykeypair-nginx-dev",
             "fingerprint": "69:4d:f2:62:46:59:be:48:fe:e5:4b:21:b1:71:9d:fc",
-            "id": "mykeypair-tomcat-dev",
-            "key_name": "mykeypair-tomcat-dev",
+            "id": "mykeypair-nginx-dev",
+            "key_name": "mykeypair-nginx-dev",
             "key_name_prefix": null,
-            "key_pair_id": "key-0d7443f898ef56f92",
+            "key_pair_id": "key-0ef5a02085e4f6ab1",
             "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDvMjX6ra97UaCms/nHMKgPdyktO7AdPT49F4BKjBZXWzcWjIBij+ecH+R9mtSQrteZZawJKXyhr1RMz5N5IJ2EzGblofvSFU7kNFHV8z9raFqkgLv9aXDRfg3owVkp9SKF7/PS1ILzK6udcRCBdVIjzav3AnZcVtHLs5bKv56s8f2jK0J5orzw84OTMRTG/mbLC2lJ2kqYRLoBpulsXq3z/jKb3nKmwYhjbBBmJKtqroe5pGJYfWKFogrv9ILKknyveSXd2fBsiPwRYL4qVefsPK3QHespdhrV0FK1NwOVDBg46TEi6qkBbhwvh/alyFyQNRxBwdkXVd4OWWKtr/PmRgpXA/YKWoyDuqW5PS/8PQhLZ8RGbJi0E+w/c0C0l9WAhzf+piFO+DSu2H5UeEgt9mokbqecMvRuIzORHIfEE9BJMDjJ1ikcfb7LFmiOEQTMViJAiwMpjQwBrgUdZM1qePMqwyF4QjgNucx9m0CZ6tzAZKFKTRqIIJj1vzwumvU= Cesar@RAZERBLADE14",
             "tags": null
           },
@@ -1062,14 +974,14 @@
             "destination_ipv6_cidr_block": "",
             "destination_prefix_list_id": "",
             "egress_only_gateway_id": "",
-            "gateway_id": "igw-0fc9836c9b0d9ed1c",
-            "id": "r-rtb-065c7dce8db2d92491080289494",
+            "gateway_id": "igw-06e5bd9ec51c50408",
+            "id": "r-rtb-0563fedc329af405c1080289494",
             "instance_id": "",
             "instance_owner_id": "",
             "nat_gateway_id": "",
             "network_interface_id": "",
             "origin": "CreateRoute",
-            "route_table_id": "rtb-065c7dce8db2d9249",
+            "route_table_id": "rtb-0563fedc329af405c",
             "state": "active",
             "timeouts": {
               "create": "5m",
@@ -1136,17 +1048,17 @@
           "index_key": 0,
           "schema_version": 0,
           "attributes": {
-            "id": "rtb-08399a6a9bab29bbe",
+            "id": "rtb-0ed042a21363e9387",
             "owner_id": "774145483743",
             "propagating_vgws": [],
             "route": [],
             "tags": {
-              "Application": "tomcat",
+              "Application": "nginx",
               "Environment": "dev",
-              "Name": "vpc-tomcat-dev-private-eu-central-1a",
+              "Name": "vpc-nginx-dev-private-eu-central-1a",
               "Terraform": "true"
             },
-            "vpc_id": "vpc-03e425ff08fd88613"
+            "vpc_id": "vpc-0c898875dea993596"
           },
           "private": "bnVsbA==",
           "dependencies": [
@@ -1158,17 +1070,17 @@
           "index_key": 1,
           "schema_version": 0,
           "attributes": {
-            "id": "rtb-0a99d7f2c1dee61dc",
+            "id": "rtb-0d144857ae261f53a",
             "owner_id": "774145483743",
             "propagating_vgws": [],
             "route": [],
             "tags": {
-              "Application": "tomcat",
+              "Application": "nginx",
               "Environment": "dev",
-              "Name": "vpc-tomcat-dev-private-eu-central-1b",
+              "Name": "vpc-nginx-dev-private-eu-central-1b",
               "Terraform": "true"
             },
-            "vpc_id": "vpc-03e425ff08fd88613"
+            "vpc_id": "vpc-0c898875dea993596"
           },
           "private": "bnVsbA==",
           "dependencies": [
@@ -1180,17 +1092,17 @@
           "index_key": 2,
           "schema_version": 0,
           "attributes": {
-            "id": "rtb-046fdeb0ef735f927",
+            "id": "rtb-0a985cbe4a7f36ca8",
             "owner_id": "774145483743",
             "propagating_vgws": [],
             "route": [],
             "tags": {
-              "Application": "tomcat",
+              "Application": "nginx",
               "Environment": "dev",
-              "Name": "vpc-tomcat-dev-private-eu-central-1c",
+              "Name": "vpc-nginx-dev-private-eu-central-1c",
               "Terraform": "true"
             },
-            "vpc_id": "vpc-03e425ff08fd88613"
+            "vpc_id": "vpc-0c898875dea993596"
           },
           "private": "bnVsbA==",
           "dependencies": [
@@ -1212,17 +1124,17 @@
           "index_key": 0,
           "schema_version": 0,
           "attributes": {
-            "id": "rtb-065c7dce8db2d9249",
+            "id": "rtb-0563fedc329af405c",
             "owner_id": "774145483743",
             "propagating_vgws": [],
             "route": [],
             "tags": {
-              "Application": "tomcat",
+              "Application": "nginx",
               "Environment": "dev",
-              "Name": "vpc-tomcat-dev-public",
+              "Name": "vpc-nginx-dev-public",
               "Terraform": "true"
             },
-            "vpc_id": "vpc-03e425ff08fd88613"
+            "vpc_id": "vpc-0c898875dea993596"
           },
           "private": "bnVsbA==",
           "dependencies": [
@@ -1281,9 +1193,9 @@
           "schema_version": 0,
           "attributes": {
             "gateway_id": null,
-            "id": "rtbassoc-0018dc871fa0eed0a",
-            "route_table_id": "rtb-08399a6a9bab29bbe",
-            "subnet_id": "subnet-0b6667fafe10cf516"
+            "id": "rtbassoc-032431ac62a0d0bb1",
+            "route_table_id": "rtb-0ed042a21363e9387",
+            "subnet_id": "subnet-0af4eb386aa766516"
           },
           "private": "bnVsbA==",
           "dependencies": [
@@ -1298,9 +1210,9 @@
           "schema_version": 0,
           "attributes": {
             "gateway_id": null,
-            "id": "rtbassoc-012b8f1e772c8c1de",
-            "route_table_id": "rtb-0a99d7f2c1dee61dc",
-            "subnet_id": "subnet-0eac120561fafcf4d"
+            "id": "rtbassoc-0aefbce1c63d68a76",
+            "route_table_id": "rtb-0d144857ae261f53a",
+            "subnet_id": "subnet-00d0f6e2b152d2fbf"
           },
           "private": "bnVsbA==",
           "dependencies": [
@@ -1315,9 +1227,9 @@
           "schema_version": 0,
           "attributes": {
             "gateway_id": null,
-            "id": "rtbassoc-048ef7e0a68832cea",
-            "route_table_id": "rtb-046fdeb0ef735f927",
-            "subnet_id": "subnet-07978574f0c55e1d2"
+            "id": "rtbassoc-0e4e4ae74b76ff1cf",
+            "route_table_id": "rtb-0a985cbe4a7f36ca8",
+            "subnet_id": "subnet-0d258e3e59a3bd90a"
           },
           "private": "bnVsbA==",
           "dependencies": [
@@ -1342,9 +1254,9 @@
           "schema_version": 0,
           "attributes": {
             "gateway_id": null,
-            "id": "rtbassoc-011f5712e92efddfe",
-            "route_table_id": "rtb-065c7dce8db2d9249",
-            "subnet_id": "subnet-08c08ca83f3267037"
+            "id": "rtbassoc-06e18c4ee190392ec",
+            "route_table_id": "rtb-0563fedc329af405c",
+            "subnet_id": "subnet-01063cf7e1b7b7c9a"
           },
           "private": "bnVsbA==",
           "dependencies": [
@@ -1359,9 +1271,9 @@
           "schema_version": 0,
           "attributes": {
             "gateway_id": null,
-            "id": "rtbassoc-0880676fe250c9b27",
-            "route_table_id": "rtb-065c7dce8db2d9249",
-            "subnet_id": "subnet-0d5832916b57129dc"
+            "id": "rtbassoc-0a8e6841bb68ea9ad",
+            "route_table_id": "rtb-0563fedc329af405c",
+            "subnet_id": "subnet-0adc1c786c443ff69"
           },
           "private": "bnVsbA==",
           "dependencies": [
@@ -1376,9 +1288,9 @@
           "schema_version": 0,
           "attributes": {
             "gateway_id": null,
-            "id": "rtbassoc-0de00beff0fbeb2d9",
-            "route_table_id": "rtb-065c7dce8db2d9249",
-            "subnet_id": "subnet-02bf1b73b9a7d185f"
+            "id": "rtbassoc-04e14e9cd2ea887a1",
+            "route_table_id": "rtb-0563fedc329af405c",
+            "subnet_id": "subnet-0e64c830cd27ab90d"
           },
           "private": "bnVsbA==",
           "dependencies": [
@@ -1419,16 +1331,16 @@
           "attributes": {
             "acceleration_status": "",
             "acl": "private",
-            "arn": "arn:aws:s3:::terraform-state-tomcat-dev-a286129",
-            "bucket": "terraform-state-tomcat-dev-a286129",
-            "bucket_domain_name": "terraform-state-tomcat-dev-a286129.s3.amazonaws.com",
+            "arn": "arn:aws:s3:::terraform-state-nginx-dev-a286129",
+            "bucket": "terraform-state-nginx-dev-a286129",
+            "bucket_domain_name": "terraform-state-nginx-dev-a286129.s3.amazonaws.com",
             "bucket_prefix": null,
-            "bucket_regional_domain_name": "terraform-state-tomcat-dev-a286129.s3.eu-central-1.amazonaws.com",
+            "bucket_regional_domain_name": "terraform-state-nginx-dev-a286129.s3.eu-central-1.amazonaws.com",
             "cors_rule": [],
             "force_destroy": true,
             "grant": [],
             "hosted_zone_id": "Z21DNDUVLTQW6Q",
-            "id": "terraform-state-tomcat-dev-a286129",
+            "id": "terraform-state-nginx-dev-a286129",
             "lifecycle_rule": [],
             "logging": [],
             "object_lock_configuration": [],
@@ -1455,7 +1367,7 @@
       ]
     },
     {
-      "module": "module.instances",
+      "module": "module.instances-provisioner",
       "mode": "managed",
       "type": "aws_security_group",
       "name": "allow-ssh",
@@ -1464,7 +1376,7 @@
         {
           "schema_version": 1,
           "attributes": {
-            "arn": "arn:aws:ec2:eu-central-1:774145483743:security-group/sg-0620e3db27f9975d1",
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:security-group/sg-0cacc8265aceb4002",
             "description": "security group that allows ssh and all egress traffic",
             "egress": [
               {
@@ -1481,7 +1393,7 @@
                 "to_port": 0
               }
             ],
-            "id": "sg-0620e3db27f9975d1",
+            "id": "sg-0cacc8265aceb4002",
             "ingress": [
               {
                 "cidr_blocks": [
@@ -1506,7 +1418,7 @@
               "Name": "allow-ssh"
             },
             "timeouts": null,
-            "vpc_id": "vpc-03e425ff08fd88613"
+            "vpc_id": "vpc-0c898875dea993596"
           },
           "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
           "dependencies": [
@@ -1516,17 +1428,17 @@
       ]
     },
     {
-      "module": "module.instances",
+      "module": "module.instances-provisioner",
       "mode": "managed",
       "type": "aws_security_group",
-      "name": "tomcat",
+      "name": "nginx",
       "provider": "provider.aws",
       "instances": [
         {
           "schema_version": 1,
           "attributes": {
-            "arn": "arn:aws:ec2:eu-central-1:774145483743:security-group/sg-054b362cd3684dafd",
-            "description": "security group that allows web traffic for tomcat",
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:security-group/sg-0da8800943082a4cc",
+            "description": "security group that allows web traffic for nginx",
             "egress": [
               {
                 "cidr_blocks": [
@@ -1542,7 +1454,7 @@
                 "to_port": 0
               }
             ],
-            "id": "sg-054b362cd3684dafd",
+            "id": "sg-0da8800943082a4cc",
             "ingress": [
               {
                 "cidr_blocks": [
@@ -1558,16 +1470,16 @@
                 "to_port": 80
               }
             ],
-            "name": "tomcat-dev",
+            "name": "nginx-dev",
             "name_prefix": null,
             "owner_id": "774145483743",
             "revoke_rules_on_delete": false,
             "tags": {
               "Environmnent": "dev",
-              "Name": "tomcat"
+              "Name": "nginx"
             },
             "timeouts": null,
-            "vpc_id": "vpc-03e425ff08fd88613"
+            "vpc_id": "vpc-0c898875dea993596"
           },
           "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
           "dependencies": [
@@ -1615,25 +1527,25 @@
           "index_key": 0,
           "schema_version": 1,
           "attributes": {
-            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-0b6667fafe10cf516",
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-0af4eb386aa766516",
             "assign_ipv6_address_on_creation": false,
             "availability_zone": "eu-central-1a",
             "availability_zone_id": "euc1-az2",
             "cidr_block": "10.0.1.0/24",
-            "id": "subnet-0b6667fafe10cf516",
+            "id": "subnet-0af4eb386aa766516",
             "ipv6_cidr_block": "",
             "ipv6_cidr_block_association_id": "",
             "map_public_ip_on_launch": false,
             "outpost_arn": "",
             "owner_id": "774145483743",
             "tags": {
-              "Application": "tomcat",
+              "Application": "nginx",
               "Environment": "dev",
-              "Name": "vpc-tomcat-dev-private-eu-central-1a",
+              "Name": "vpc-nginx-dev-private-eu-central-1a",
               "Terraform": "true"
             },
             "timeouts": null,
-            "vpc_id": "vpc-03e425ff08fd88613"
+            "vpc_id": "vpc-0c898875dea993596"
           },
           "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
           "dependencies": [
@@ -1645,25 +1557,25 @@
           "index_key": 1,
           "schema_version": 1,
           "attributes": {
-            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-0eac120561fafcf4d",
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-00d0f6e2b152d2fbf",
             "assign_ipv6_address_on_creation": false,
             "availability_zone": "eu-central-1b",
             "availability_zone_id": "euc1-az3",
             "cidr_block": "10.0.2.0/24",
-            "id": "subnet-0eac120561fafcf4d",
+            "id": "subnet-00d0f6e2b152d2fbf",
             "ipv6_cidr_block": "",
             "ipv6_cidr_block_association_id": "",
             "map_public_ip_on_launch": false,
             "outpost_arn": "",
             "owner_id": "774145483743",
             "tags": {
-              "Application": "tomcat",
+              "Application": "nginx",
               "Environment": "dev",
-              "Name": "vpc-tomcat-dev-private-eu-central-1b",
+              "Name": "vpc-nginx-dev-private-eu-central-1b",
               "Terraform": "true"
             },
             "timeouts": null,
-            "vpc_id": "vpc-03e425ff08fd88613"
+            "vpc_id": "vpc-0c898875dea993596"
           },
           "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
           "dependencies": [
@@ -1675,25 +1587,25 @@
           "index_key": 2,
           "schema_version": 1,
           "attributes": {
-            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-07978574f0c55e1d2",
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-0d258e3e59a3bd90a",
             "assign_ipv6_address_on_creation": false,
             "availability_zone": "eu-central-1c",
             "availability_zone_id": "euc1-az1",
             "cidr_block": "10.0.3.0/24",
-            "id": "subnet-07978574f0c55e1d2",
+            "id": "subnet-0d258e3e59a3bd90a",
             "ipv6_cidr_block": "",
             "ipv6_cidr_block_association_id": "",
             "map_public_ip_on_launch": false,
             "outpost_arn": "",
             "owner_id": "774145483743",
             "tags": {
-              "Application": "tomcat",
+              "Application": "nginx",
               "Environment": "dev",
-              "Name": "vpc-tomcat-dev-private-eu-central-1c",
+              "Name": "vpc-nginx-dev-private-eu-central-1c",
               "Terraform": "true"
             },
             "timeouts": null,
-            "vpc_id": "vpc-03e425ff08fd88613"
+            "vpc_id": "vpc-0c898875dea993596"
           },
           "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
           "dependencies": [
@@ -1715,25 +1627,25 @@
           "index_key": 0,
           "schema_version": 1,
           "attributes": {
-            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-08c08ca83f3267037",
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-01063cf7e1b7b7c9a",
             "assign_ipv6_address_on_creation": false,
             "availability_zone": "eu-central-1a",
             "availability_zone_id": "euc1-az2",
             "cidr_block": "10.0.101.0/24",
-            "id": "subnet-08c08ca83f3267037",
+            "id": "subnet-01063cf7e1b7b7c9a",
             "ipv6_cidr_block": "",
             "ipv6_cidr_block_association_id": "",
             "map_public_ip_on_launch": true,
             "outpost_arn": "",
             "owner_id": "774145483743",
             "tags": {
-              "Application": "tomcat",
+              "Application": "nginx",
               "Environment": "dev",
-              "Name": "vpc-tomcat-dev-public-eu-central-1a",
+              "Name": "vpc-nginx-dev-public-eu-central-1a",
               "Terraform": "true"
             },
             "timeouts": null,
-            "vpc_id": "vpc-03e425ff08fd88613"
+            "vpc_id": "vpc-0c898875dea993596"
           },
           "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
           "dependencies": [
@@ -1745,25 +1657,25 @@
           "index_key": 1,
           "schema_version": 1,
           "attributes": {
-            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-0d5832916b57129dc",
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-0adc1c786c443ff69",
             "assign_ipv6_address_on_creation": false,
             "availability_zone": "eu-central-1b",
             "availability_zone_id": "euc1-az3",
             "cidr_block": "10.0.102.0/24",
-            "id": "subnet-0d5832916b57129dc",
+            "id": "subnet-0adc1c786c443ff69",
             "ipv6_cidr_block": "",
             "ipv6_cidr_block_association_id": "",
             "map_public_ip_on_launch": true,
             "outpost_arn": "",
             "owner_id": "774145483743",
             "tags": {
-              "Application": "tomcat",
+              "Application": "nginx",
               "Environment": "dev",
-              "Name": "vpc-tomcat-dev-public-eu-central-1b",
+              "Name": "vpc-nginx-dev-public-eu-central-1b",
               "Terraform": "true"
             },
             "timeouts": null,
-            "vpc_id": "vpc-03e425ff08fd88613"
+            "vpc_id": "vpc-0c898875dea993596"
           },
           "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
           "dependencies": [
@@ -1775,25 +1687,25 @@
           "index_key": 2,
           "schema_version": 1,
           "attributes": {
-            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-02bf1b73b9a7d185f",
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:subnet/subnet-0e64c830cd27ab90d",
             "assign_ipv6_address_on_creation": false,
             "availability_zone": "eu-central-1c",
             "availability_zone_id": "euc1-az1",
             "cidr_block": "10.0.103.0/24",
-            "id": "subnet-02bf1b73b9a7d185f",
+            "id": "subnet-0e64c830cd27ab90d",
             "ipv6_cidr_block": "",
             "ipv6_cidr_block_association_id": "",
             "map_public_ip_on_launch": true,
             "outpost_arn": "",
             "owner_id": "774145483743",
             "tags": {
-              "Application": "tomcat",
+              "Application": "nginx",
               "Environment": "dev",
-              "Name": "vpc-tomcat-dev-public-eu-central-1c",
+              "Name": "vpc-nginx-dev-public-eu-central-1c",
               "Terraform": "true"
             },
             "timeouts": null,
-            "vpc_id": "vpc-03e425ff08fd88613"
+            "vpc_id": "vpc-0c898875dea993596"
           },
           "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9",
           "dependencies": [
@@ -1824,27 +1736,27 @@
           "index_key": 0,
           "schema_version": 1,
           "attributes": {
-            "arn": "arn:aws:ec2:eu-central-1:774145483743:vpc/vpc-03e425ff08fd88613",
+            "arn": "arn:aws:ec2:eu-central-1:774145483743:vpc/vpc-0c898875dea993596",
             "assign_generated_ipv6_cidr_block": false,
             "cidr_block": "10.0.0.0/16",
-            "default_network_acl_id": "acl-0a9c2943c0bb542c2",
-            "default_route_table_id": "rtb-080896f838d34995d",
-            "default_security_group_id": "sg-0e555079241180283",
+            "default_network_acl_id": "acl-04cab05846066460e",
+            "default_route_table_id": "rtb-02eea90fe3df71bd4",
+            "default_security_group_id": "sg-07698de847a5475bd",
             "dhcp_options_id": "dopt-3b11ca51",
             "enable_classiclink": null,
             "enable_classiclink_dns_support": null,
             "enable_dns_hostnames": false,
             "enable_dns_support": true,
-            "id": "vpc-03e425ff08fd88613",
+            "id": "vpc-0c898875dea993596",
             "instance_tenancy": "default",
             "ipv6_association_id": "",
             "ipv6_cidr_block": "",
-            "main_route_table_id": "rtb-080896f838d34995d",
+            "main_route_table_id": "rtb-02eea90fe3df71bd4",
             "owner_id": "774145483743",
             "tags": {
-              "Application": "tomcat",
+              "Application": "nginx",
               "Environment": "dev",
-              "Name": "vpc-tomcat-dev",
+              "Name": "vpc-nginx-dev",
               "Terraform": "true"
             }
           },
