@@ -1,0 +1,4 @@
+---
+app_user: "tomcat"
+http_port: "8080"
+disable_default: true

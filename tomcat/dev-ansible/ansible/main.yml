@@ -76,9 +76,6 @@
           - name: enable tomcat service
             shell: systemctl enable tomcat
 
-          #- name: start tomcat service
-            #shell: systemctl start tomcat
-          
           - name: "UFW - Allow HTTP on port {{ http_port }}"
             ufw:
              rule: allow

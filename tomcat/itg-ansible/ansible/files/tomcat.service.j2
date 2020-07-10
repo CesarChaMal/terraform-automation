@@ -1,13 +1,11 @@
-#cloud-config
-
 [Unit]
 Description=Apache Tomcat Web Server
 After=network.target
 
 [Service]
 Type=forking
-User=tomcat
-Group=tomcat
+User={{ app_user }}
+Group={{ app_user }}
 
 Environment="JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre"
 Environment="CATALINA_PID=/opt/tomcat/temp/tomcat.pid"
@@ -28,7 +26,3 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
-
-output:
-  all: '| tee -a /var/log/cloud-init-output.log'
-  

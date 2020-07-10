@@ -3,54 +3,97 @@
   become: yes
   become_user: root
   become_method: sudo
+  vars_files:
+          - vars/default.yml
+
   tasks:
-    - name: Update apt repo and cache on all Debian/Ubuntu boxes
-      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+          - name: Update apt repo and cache on all Debian/Ubuntu boxes
+            apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+          
+          - name: Upgrade all packages on servers
+            apt: upgrade=dist force_apt_get=yes
+          
+          - name: Add hostname to hostfile
+            shell: "echo \"127.0.0.1 $(hostname)\" >> /etc/hosts"
+          
+          - name: Install prerequisites
+            apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
+            loop: [ 'aptitude' ]
+          
+          - name: Install default-jdk
+            apt: name=default-jdk update_cache=yes state=latest
+          
+          - name: create directory for tomcat
+            shell: mkdir -p /opt/tomcat
+          
+          - name: create group for tomcat
+            shell: groupadd tomcat
 
-    - name: Upgrade all packages on servers
-      apt: upgrade=dist force_apt_get=yes
+          - name: create user for tomcat
+            shell: useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
 
-    - name: Check if a reboot is needed on all servers
-      register: reboot_required_file
-      stat: path=/var/run/reboot-required get_md5=no
+          - name: download tomcat
+            shell: wget http://apache.mirror.digitalpacific.com.au/tomcat/tomcat-8/v8.5.56/bin/apache-tomcat-8.5.56.tar.gz
+          
+          - name: unzip tomcat
+            shell: tar -xzvf apache-tomcat-8.5.56.tar.gz
+          
+          - name: move files to tomcat system folder
+            shell: mv apache-tomcat-8.5.56/* /opt/tomcat
+          
+          - name: create softlink for tomcat
+            shell: ln -s /opt/tomcat /opt/tomcat/latest
+            
+          - name: change the user for tomcat folder
+            shell: chown -R tomcat /opt/tomcat
+          
+          - name: change the permissions for tomcat folder
+            shell: chmod -R 755 /opt/tomcat
+          
+          - name: change the group for tomcat folder
+            shell: chgrp -R tomcat /opt/tomcat
+          
+          - name: change the group for tomcat folder
+            shell: sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'
+          
+          - name: set variable
+            shell: echo "export CATALINA_HOME="/opt/tomcat"" >> ~/.bashrc
+          
+          - name: addiing it to the env
+            shell: source ~/.bashrc
+            args:
+              executable: /bin/bash
+            ignore_errors: yes
+    
+          - name: copyng the config files
+            template:
+             src: "files/tomcat.service.j2"
+             dest: "/etc/systemd/system/tomcat.service"
+          
+          - name: reload daemon
+            shell: systemctl daemon-reload
 
-    - name: Add PPA for tomcat.
-      apt_repository:
-#        repo: 'ppa:deadsnakes/ppa'
-        repo: 'ppa:tomcat/stable'
-        state: present
-        update_cache: true
-      register: nginx_ppa_added
+          - name: enable tomcat service
+            shell: systemctl enable tomcat
 
-#    - name: Add repository of tomcat
-#      shell: "add-apt-repository ppa:tomcat/stable"
+          - name: "UFW - Allow HTTP on port {{ http_port }}"
+            ufw:
+             rule: allow
+             port: "{{ http_port }}"
+             proto: tcp
 
-    - name: Add hostname to hostfile
-      shell: "echo \"127.0.0.1 $(hostname)\" >> /etc/hosts"
-
-    - name: Install tomcat
-      apt:
-        name: tomcat
-        state: latest
-        update_cache: true
-
-    - name: Copy tomcat config files
-      copy:
-        src: "./files/tomcat.conf"
-        dest: "/etc/tomcat/tomcat.conf"
-        mode: 0644
-
-
-    - name: Start tomcat
-      service: name=tomcat state=restarted enabled=yes
-      
-#    - name: Reboot the box if kernel updated
-#      reboot:
-#        msg: "Reboot initiated by Ansible for kernel updates"
-#        connect_timeout: 5
-#        reboot_timeout: 300
-#        pre_reboot_delay: 0
-#        post_reboot_delay: 30
-#        test_command: uptime
-#      when: reboot_required_file.stat.exists
-      
+          - name: Test for running Tomcat
+            shell: ps axuf | grep 'tomcat' | grep -v "grep" | tr -d "\n" | cat
+            register: test_running_tomcat
+            changed_when: False
+            tags: restart-tomcat
+  handlers:
+          - name: Reload Tomcat
+            service: name=tomcat state=reloaded enabled=true
+            when: test_running_tomcat.stdout != ""
+            tags: restart-tomcat
+          
+          - name: Restart Tomcat
+            service: name=tomcat state=restarted enabled=true
+            when: test_running_tomcat.stdout != ""
+            tags: restart-tomcat

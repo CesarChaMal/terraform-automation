@@ -23,8 +23,6 @@ chmod -R 755 /opt/tomcat
 sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'
 echo "export CATALINA_HOME="/opt/tomcat"" >> ~/.bashrc
 source ~/.bashrc
-#touch /etc/systemd/system/tomcat.service
-ls -ltra /tmp/conf/tomcat.service
 cat /tmp/conf/tomcat.service > /etc/systemd/system/tomcat.service
 cat /etc/systemd/system/tomcat.service
 

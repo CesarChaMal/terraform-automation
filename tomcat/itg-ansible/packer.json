@@ -16,20 +16,20 @@
   }],
   "provisioners": [
    {
-     "type": "shell",
-     "inline": [
-       "sleep 20",
-       "sudo apt-get update",
-       "sudo apt-get install python-simplejson -yq",
-       "sudo apt-get install python -yq"
-     ]
+	 "type": "shell",
+	 "inline": [
+	   "sleep 20",
+	   "sudo apt-get update",
+	   "sudo apt-get install python-simplejson -yq",
+	   "sudo apt-get install python -yq"
+	 ]
    },
    {
-    "type": "ansible",
+	"type": "ansible",
 	"extra_arguments": [
-     ],
-    "playbook_file": "ansible/main.yml",
-    "pause_before": "10s"
+	 ],
+	"playbook_file": "ansible/main.yml",
+	"pause_before": "10s"
    }
   ]
 }
