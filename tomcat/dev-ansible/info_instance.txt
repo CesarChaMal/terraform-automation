@@ -1,4 +1,4 @@
-Instance name: 
-Public ip: 
-Private dns: 
-Zone: 
+Instance name:  tomcat-dev-instance
+Public ip:  18.197.51.195
+Private dns:  ip-10-0-101-182.eu-central-1.compute.internal
+Zone:  eu-central-1a

@@ -70,6 +70,15 @@
              src: "files/tomcat.service.j2"
              dest: "/etc/systemd/system/tomcat.service"
           
+          #- name: reload daemon
+            #shell: systemctl daemon-reload
+
+          #- name: enable tomcat service
+            #shell: systemctl enable tomcat
+
+          #- name: start tomcat service
+            #shell: systemctl start tomcat
+          
           - name: "UFW - Allow HTTP on port {{ http_port }}"
             ufw:
              rule: allow
@@ -85,7 +94,7 @@
           - name: Reload Tomcat
             service: name=tomcat state=reloaded enabled=true
             when: test_running_tomcat.stdout != ""
-            tags: restart-apache
+            tags: restart-tomcat
           
           - name: Restart Tomcat
             service: name=tomcat state=restarted enabled=true
