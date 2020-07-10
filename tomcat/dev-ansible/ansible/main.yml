@@ -70,8 +70,8 @@
              src: "files/tomcat.service.j2"
              dest: "/etc/systemd/system/tomcat.service"
           
-          #- name: reload daemon
-            #shell: systemctl daemon-reload
+          - name: reload daemon
+            shell: systemctl daemon-reload
 
           #- name: enable tomcat service
             #shell: systemctl enable tomcat
