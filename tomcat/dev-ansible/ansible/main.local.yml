@@ -73,8 +73,8 @@
           - name: reload daemon
             shell: systemctl daemon-reload
 
-          #- name: enable tomcat service
-            #shell: systemctl enable tomcat
+          - name: enable tomcat service
+            shell: systemctl enable tomcat
 
           #- name: start tomcat service
             #shell: systemctl start tomcat
