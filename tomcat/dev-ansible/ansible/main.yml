@@ -61,7 +61,10 @@
           
           - name: addiing it to the env
             shell: source ~/.bashrc
-
+            args:
+              executable: /bin/bash
+            ignore_errors: yes
+    
           - name: copyng the config files
             template:
              src: "files/tomcat.service.j2"
