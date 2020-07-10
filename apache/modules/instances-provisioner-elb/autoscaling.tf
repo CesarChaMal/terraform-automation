@@ -5,6 +5,7 @@ resource "aws_launch_configuration" "launchconfig" {
   key_name        = aws_key_pair.mykeypair.key_name
   security_groups = [aws_security_group.allow-ssh.id, aws_security_group.apache.id, aws_security_group.elb-securitygroup.id]
   user_data       = data.template_cloudinit_config.config.rendered
+  #user_data       = template_cloudinit_config.config.rendered
   lifecycle {
     create_before_destroy = true
   }

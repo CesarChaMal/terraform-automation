@@ -25,33 +25,22 @@
           
           - name: "UFW - Allow HTTP on port {{ http_port }}"
             ufw:
-                    rule: allow
-                    port: "{{ http_port }}"
-                    proto: tcp
+             rule: allow
+             port: "{{ http_port }}"
+             proto: tcp
 
           - name: Test for running Apache
             shell: ps axuf | grep 'apache2' | grep -v "grep" | tr -d "\n" | cat
             register: test_running_apache
             changed_when: False
             tags: restart-apache
-         
-          - name: Reload Apache
-            service: name=apache2 state=reloaded
-            when: test_running_apache.stdout != ""
-            tags: restart-apache
-          
-          - name: Restart Apache
-            service: name=apache2 state=restarted
-            when: test_running_apache.stdout != ""
-            tags: restart-apache
-                    
   handlers:
           - name: Reload Apache
-            service:
-                    name: apache2
-                    state: reloaded
+            service: name=apache2 state=reloaded enabled=true
+            when: test_running_apache.stdout != ""
+            tags: restart-apache
           
           - name: Restart Apache
-            service:
-                    name: apache2
-                    state: restarted
+            service: name=apache2 state=restarted enabled=true
+            when: test_running_apache.stdout != ""
+            tags: restart-apache

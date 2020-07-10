@@ -16,9 +16,18 @@
   }],
   "provisioners": [
 	   {
+		"type": "shell",
+		"inline": [  "mkdir -p /tmp/conf"   ]
+	   },
+	   {
 		"type": "file",
-		"source": "conf/tomcat.service",
-		"destination": "/tmp/conf/tomcat.service"
+		"source": "conf/apache.conf",
+		"destination": "/tmp/conf/apache.conf"
+	   },
+	   {
+		"type": "file",
+		"source": "conf/index.html",
+		"destination": "/tmp/conf/index.html"
 	   },
 	   {
 		"type": "shell",

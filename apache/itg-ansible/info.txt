@@ -1,13 +1,17 @@
 ansible-playbook ansible/main.yml --connection=local
 ansible-playbook ansible/main.local.yml --connection=local
 ansible-playbook ansible/main.yml --syntax-check
+ansible-playbook ansible/main.local.yml --syntax-check
 ansible-playbook ansible/main.yml --check
+
 ansible-playbook ansible_custom/main.yml --connection=local
 ansible-playbook ansible_custom/main.local.yml --connection=local
 ansible-playbook ansible_custom/main.yml --syntax-check
-ansible-playbook ansible_custom/main.yml --check
+ansible-playbook ansible_custom/main.local.yml --syntax-check
+
 ansible-lint -x $(echo $(ansible-lint -L | awk -F':' '{print $1}' | grep '^[^ ]') | tr ' ' ',') ansible/main.yml
 sudo nginx -t
+sudo ps axuf | grep 'nginx' | grep -v "grep" | tr -d "\n" | cat
 packer build -machine-readable packer.json
 packer build -machine-readable packer_custom.json
 sudo apt-get purge -y nginx nginx-common
@@ -22,3 +26,8 @@ sudo -- sh -c -e echo -e "127.0.0.1 $(hostname)" >> /etc/hosts
 sudo echo "127.0.0.1 $(hostname)" >> /etc/hosts
 terraform init && terraform apply -auto-approve
 sed -i 's/#//g' backend.tf
+sed -i -e 's/^/#/' backend.tf
+sed -i 's/#//g' s3.tf
+sed -i -e 's/^/#/' s3.tf
+sed -i 's/\t/    /g' ansible/main.yml
+sed -i 's/\t/    /g' ansible_custom/main.yml

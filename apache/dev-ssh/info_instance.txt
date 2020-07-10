@@ -1,4 +1,4 @@
-Instance name:  apache-dev-instance
-Public ip:  18.185.72.159
-Private dns:  ip-10-0-101-101.eu-central-1.compute.internal
-Zone:  eu-central-1a
+Instance name: 
+Public ip: 
+Private dns: 
+Zone: 

@@ -28,7 +28,7 @@ variable "PATH_SCRIPT" {
 }
 
 variable "PATH_CONF" {
-  default = "conf"
+  default = "conf/tomcat.service.cfg"
 }
 
 variable "INSTANCE_USERNAME" {

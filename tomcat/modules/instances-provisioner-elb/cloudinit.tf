@@ -6,7 +6,7 @@ data "template_file" "script" {
 }
 
 data "template_file" "config" {
-  template = file(var.PATH_CONF/tomcat.service.cfg)
+  template = file(var.PATH_CONF)
 }
 
 data "template_cloudinit_config" "config" {
