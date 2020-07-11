@@ -16,6 +16,10 @@
   }],
   "provisioners": [
 	   {
+		"type": "shell",
+		"inline": [  "mkdir -p /tmp/conf"   ]
+	   },
+	   {
 		"type": "file",
 		"source": "conf/wildfly.conf",
 		"destination": "/tmp/conf/wildfly.conf"
