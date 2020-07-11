@@ -84,7 +84,7 @@
             shell: systemctl daemon-reload
 
           - name: enable wildfly service
-            shell: systemctl enable tomcat
+            shell: systemctl enable wildfly
 
           - name: Test for running Wildfly
             shell: ps axuf | grep 'wildfly' | grep -v "grep" | tr -d "\n" | cat
