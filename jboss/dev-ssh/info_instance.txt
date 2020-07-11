@@ -1,0 +1,4 @@
+Instance name:  jboss-dev-instance
+Public ip:  18.185.91.225
+Private dns:  ip-10-0-101-232.eu-central-1.compute.internal
+Zone:  eu-central-1a
