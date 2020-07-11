@@ -53,9 +53,6 @@
           - name: change the permissions for wildfly folder
             shell: chmod -R 755 /opt/wildfly
           
-          - name: change the group for tomcat folder
-            shell: sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'
-          
           - name: copyng the config files
             template:
              src: "files/wildfly.conf.j2"
