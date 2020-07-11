@@ -23,58 +23,59 @@
           - name: Install default-jdk
             apt: name=default-jdk update_cache=yes state=latest
           
-          - name: create directory for tomcat
-            shell: mkdir -p /opt/tomcat
+          - name: create directories for wildfly
+            shell: mkdir -p /opt/wildfly && mkdir -p /etc/wildfly/
           
-          - name: create group for tomcat
-            shell: groupadd tomcat
+          - name: create group for wildfly
+            shell: groupadd wildfly
 
-          - name: create user for tomcat
-            shell: useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
+          - name: create user for wildfly
+            shell: useradd -r -g wildfly -d /opt/wildfly -s /sbin/nologin wildfly
 
-          - name: download tomcat
-            shell: wget http://apache.mirror.digitalpacific.com.au/tomcat/tomcat-8/v8.5.56/bin/apache-tomcat-8.5.56.tar.gz
+          - name: download wildfly
+            shell: wget https://download.jboss.org/wildfly/16.0.0.Final/wildfly-{{ app_version }}.Final.tar.gz
           
-          - name: unzip tomcat
-            shell: tar -xzvf apache-tomcat-8.5.56.tar.gz
+          - name: unzip wildfly
+            shell: tar -xzvf wildfly-{{ app_version }}.Final.tar.gz
           
-          - name: move files to tomcat system folder
-            shell: mv apache-tomcat-8.5.56/* /opt/tomcat
+          - name: delete wildfly zip
+            shell: rm -f wildfly-{{ app_version }}.Final.tar.gz
           
-          - name: create softlink for tomcat
-            shell: ln -s /opt/tomcat /opt/tomcat/latest
-            
-          - name: change the user for tomcat folder
-            shell: chown -R tomcat /opt/tomcat
+          - name: move files to wildfly system folder
+            shell: mv wildfly-{{ app_version }}.Final/* /opt/wildfly
           
-          - name: change the permissions for tomcat folder
-            shell: chmod -R 755 /opt/tomcat
+          - name: change the user for wildfly folder
+            shell: chown -R wildfly /opt/wildfly
           
-          - name: change the group for tomcat folder
-            shell: chgrp -R tomcat /opt/tomcat
+          - name: change the group for wildfly folder
+            shell: chgrp -R wildfly /opt/wildfly
+
+          - name: change the permissions for wildfly folder
+            shell: chmod -R 755 /opt/wildfly
           
           - name: change the group for tomcat folder
             shell: sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'
           
-          - name: set variable
-            shell: echo "export CATALINA_HOME="/opt/tomcat"" >> ~/.bashrc
-          
-          - name: addiing it to the env
-            shell: source ~/.bashrc
-            args:
-              executable: /bin/bash
-            ignore_errors: yes
-    
           - name: copyng the config files
             template:
-             src: "files/tomcat.service.j2"
-             dest: "/etc/systemd/system/tomcat.service"
+             src: "files/wildfly.conf.j2"
+             dest: "/etc/wildfly/wildfly.conf"
           
-          - name: reload daemon
-            shell: systemctl daemon-reload
+          - name: copyng the config files
+            template:
+             src: "files/launch.sh.j2"
+             dest: "/opt/wildfly/bin/launch.sh"
+          
+          - name: copyng the config files
+            template:
+             src: "files/wildfly.service.j2"
+             dest: "/etc/systemd/system/wildfly.service"
+          
+          - name: change the ownership for wildfly folder
+            shell: chown wildfly: /opt/wildfly/bin/launch.sh
 
-          - name: enable tomcat service
-            shell: systemctl enable tomcat
+          - name: change the permissions for wildfly folder
+            shell: sh -c 'chmod +x /opt/wildfly/bin/*.sh'
 
           - name: "UFW - Allow HTTP on port {{ http_port }}"
             ufw:
@@ -82,18 +83,24 @@
              port: "{{ http_port }}"
              proto: tcp
 
-          - name: Test for running Tomcat
-            shell: ps axuf | grep 'tomcat' | grep -v "grep" | tr -d "\n" | cat
-            register: test_running_tomcat
+          - name: reload daemon
+            shell: systemctl daemon-reload
+
+          - name: enable wildfly service
+            shell: systemctl enable tomcat
+
+          - name: Test for running Wildfly
+            shell: ps axuf | grep 'wildfly' | grep -v "grep" | tr -d "\n" | cat
+            register: test_running_wildfly
             changed_when: False
-            tags: restart-tomcat
+            tags: restart-wildfly
   handlers:
-          - name: Reload Tomcat
-            service: name=tomcat state=reloaded enabled=true
-            when: test_running_tomcat.stdout != ""
-            tags: restart-tomcat
+          - name: Reload Wildfly
+            service: name=wildfly state=reloaded enabled=true
+            when: test_running_wildfly.stdout != ""
+            tags: restart-wildfly
           
-          - name: Restart Tomcat
-            service: name=tomcat state=restarted enabled=true
-            when: test_running_tomcat.stdout != ""
-            tags: restart-tomcat
+          - name: Restart Wildfly
+            service: name=wildfly state=restarted enabled=true
+            when: test_running_wildfly.stdout != ""
+            tags: restart-wildfly

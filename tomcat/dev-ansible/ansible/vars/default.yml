@@ -1,4 +1,5 @@
 ---
 app_user: "tomcat"
+app_version: "8.5.56"
 http_port: "8080"
 disable_default: true

@@ -3,7 +3,7 @@ echo "127.0.0.1 $(hostname)" >> /etc/hosts
 apt-get update
 apt-get install -y default-jdk
 mkdir -p /opt/wildfly
-mkdir -p /etc/wildfly/ 
+mkdir -p /etc/wildfly/
 groupadd wildfly
 useradd -r -g wildfly -d /opt/wildfly -s /sbin/nologin wildfly
 wget https://download.jboss.org/wildfly/16.0.0.Final/wildfly-16.0.0.Final.tar.gz
@@ -27,7 +27,7 @@ cp /tmp/conf/wildfly.service /etc/systemd/system/wildfly.service
 chown wildfly: /opt/wildfly/bin/launch.sh
 #sh -c 'chmod +x /opt/wildfly/latest/bin/*.sh'
 sh -c 'chmod +x /opt/wildfly/bin/*.sh'
-chmod +x /opt/wildfly/bin/launch.sh
+#chmod +x /opt/wildfly/bin/launch.sh
 
 ufw allow 8080/tcp
 systemctl daemon-reload
