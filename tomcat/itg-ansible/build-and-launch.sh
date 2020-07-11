@@ -9,7 +9,7 @@ AMI_ID=`echo $ARTIFACT | cut -d ':' -f2`
 echo "AMI ID: ${AMI_ID}"
 
 echo "writing amivar-tomcat-itg.tf and uploading it to s3"
-echo 'variable "AMI_ID" { default = "'${AMI_ID}'" }' > amivar-itg.tf
+echo 'variable "AMI_ID" { default = "'${AMI_ID}'" }' > amivar-tomcat-itg.tf
 
 AWS_REGION="eu-central-1"
 S3_BUCKET=`aws s3 ls --region $AWS_REGION | grep terraform-state-tomcat-itg | tail -n1 |cut -d ' ' -f3`

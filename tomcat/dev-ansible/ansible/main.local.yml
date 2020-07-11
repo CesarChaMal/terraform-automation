@@ -33,13 +33,16 @@
             shell: useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
 
           - name: download tomcat
-            shell: wget http://apache.mirror.digitalpacific.com.au/tomcat/tomcat-8/v8.5.56/bin/apache-tomcat-8.5.56.tar.gz
+            shell: wget http://apache.mirror.digitalpacific.com.au/tomcat/tomcat-8/v{{ app_version }}/bin/apache-tomcat-{{ app_version }}.tar.gz
           
           - name: unzip tomcat
-            shell: tar -xzvf apache-tomcat-8.5.56.tar.gz
+            shell: tar -xzvf apache-tomcat-{{ app_version }}.tar.gz
+          
+          - name: delete tomcat zip
+            shell: rm -f apache-tomcat-{{ app_version }}.tar.gz
           
           - name: move files to tomcat system folder
-            shell: mv apache-tomcat-8.5.56/* /opt/tomcat
+            shell: mv apache-tomcat-{{ app_version }}/* /opt/tomcat
           
           - name: create softlink for tomcat
             shell: ln -s /opt/tomcat /opt/tomcat/latest
@@ -47,13 +50,13 @@
           - name: change the user for tomcat folder
             shell: chown -R tomcat /opt/tomcat
           
+          - name: change the group for tomcat folder
+            shell: chgrp -R tomcat /opt/tomcat
+            
           - name: change the permissions for tomcat folder
             shell: chmod -R 755 /opt/tomcat
           
-          - name: change the group for tomcat folder
-            shell: chgrp -R tomcat /opt/tomcat
-          
-          - name: change the group for tomcat folder
+          - name: change the permissions for tomcat folder
             shell: sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'
           
           - name: set variable
@@ -70,17 +73,17 @@
              src: "files/tomcat.service.j2"
              dest: "/etc/systemd/system/tomcat.service"
           
-          - name: reload daemon
-            shell: systemctl daemon-reload
-
-          - name: enable tomcat service
-            shell: systemctl enable tomcat
-
           - name: "UFW - Allow HTTP on port {{ http_port }}"
             ufw:
              rule: allow
              port: "{{ http_port }}"
              proto: tcp
+
+          - name: reload daemon
+            shell: systemctl daemon-reload
+
+          - name: enable tomcat service
+            shell: systemctl enable tomcat
 
           - name: Test for running Tomcat
             shell: ps axuf | grep 'tomcat' | grep -v "grep" | tr -d "\n" | cat
