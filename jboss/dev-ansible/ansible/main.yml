@@ -33,7 +33,7 @@
             shell: useradd -r -g wildfly -d /opt/wildfly -s /sbin/nologin wildfly
 
           - name: download wildfly
-            shell: wget https://download.jboss.org/wildfly/16.0.0.Final/wildfly-{{ app_version }}.Final.tar.gz
+            shell: wget https://download.jboss.org/wildfly/{{ app_version }}.Final/wildfly-{{ app_version }}.Final.tar.gz
           
           - name: unzip wildfly
             shell: tar -xzvf wildfly-{{ app_version }}.Final.tar.gz
@@ -72,7 +72,7 @@
              dest: "/etc/systemd/system/wildfly.service"
           
           - name: change the ownership for wildfly folder
-            shell: chown wildfly: /opt/wildfly/bin/launch.sh
+            shell: "chown wildfly: /opt/wildfly/bin/launch.sh"
 
           - name: change the permissions for wildfly folder
             shell: sh -c 'chmod +x /opt/wildfly/bin/*.sh'
