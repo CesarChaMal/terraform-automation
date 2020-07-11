@@ -3,54 +3,101 @@
   become: yes
   become_user: root
   become_method: sudo
+  vars_files:
+          - vars/default.yml
+
   tasks:
-    - name: Update apt repo and cache on all Debian/Ubuntu boxes
-      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+          - name: Update apt repo and cache on all Debian/Ubuntu boxes
+            apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+          
+          - name: Upgrade all packages on servers
+            apt: upgrade=dist force_apt_get=yes
+          
+          - name: Add hostname to hostfile
+            shell: "echo \"127.0.0.1 $(hostname)\" >> /etc/hosts"
+          
+          - name: Install prerequisites
+            apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
+            loop: [ 'aptitude' ]
+          
+          - name: Install default-jdk
+            apt: name=default-jdk update_cache=yes state=latest
+          
+          - name: create directories for wildfly
+            shell: mkdir -p /opt/wildfly && mkdir -p /etc/wildfly/
+          
+          - name: create group for wildfly
+            shell: groupadd wildfly
 
-    - name: Upgrade all packages on servers
-      apt: upgrade=dist force_apt_get=yes
+          - name: create user for wildfly
+            shell: useradd -r -g wildfly -d /opt/wildfly -s /sbin/nologin wildfly
 
-    - name: Check if a reboot is needed on all servers
-      register: reboot_required_file
-      stat: path=/var/run/reboot-required get_md5=no
+          - name: download wildfly
+            shell: wget https://download.jboss.org/wildfly/{{ app_version }}.Final/wildfly-{{ app_version }}.Final.tar.gz
+          
+          - name: unzip wildfly
+            shell: tar -xzvf wildfly-{{ app_version }}.Final.tar.gz
+          
+          - name: delete wildfly zip
+            shell: rm -f wildfly-{{ app_version }}.Final.tar.gz
+          
+          - name: move files to wildfly system folder
+            shell: mv wildfly-{{ app_version }}.Final/* /opt/wildfly
+          
+          - name: change the user for wildfly folder
+            shell: chown -R wildfly /opt/wildfly
+          
+          - name: change the group for wildfly folder
+            shell: chgrp -R wildfly /opt/wildfly
 
-    - name: Add PPA for jboss.
-      apt_repository:
-#        repo: 'ppa:deadsnakes/ppa'
-        repo: 'ppa:jboss/stable'
-        state: present
-        update_cache: true
-      register: nginx_ppa_added
+          - name: change the permissions for wildfly folder
+            shell: chmod -R 755 /opt/wildfly
+          
+          - name: copyng the config files
+            template:
+             src: "files/wildfly.conf.j2"
+             dest: "/etc/wildfly/wildfly.conf"
+          
+          - name: copyng the config files
+            template:
+             src: "files/launch.sh.j2"
+             dest: "/opt/wildfly/bin/launch.sh"
+          
+          - name: copyng the config files
+            template:
+             src: "files/wildfly.service.j2"
+             dest: "/etc/systemd/system/wildfly.service"
+          
+          - name: change the ownership for wildfly folder
+            shell: "chown wildfly: /opt/wildfly/bin/launch.sh"
 
-#    - name: Add repository of jboss
-#      shell: "add-apt-repository ppa:jboss/stable"
+          - name: change the permissions for wildfly folder
+            shell: sh -c 'chmod +x /opt/wildfly/bin/*.sh'
 
-    - name: Add hostname to hostfile
-      shell: "echo \"127.0.0.1 $(hostname)\" >> /etc/hosts"
+          - name: "UFW - Allow HTTP on port {{ http_port }}"
+            ufw:
+             rule: allow
+             port: "{{ http_port }}"
+             proto: tcp
 
-    - name: Install jboss
-      apt:
-        name: jboss
-        state: latest
-        update_cache: true
+          - name: reload daemon
+            shell: systemctl daemon-reload
 
-    - name: Copy jboss config files
-      copy:
-        src: "./files/jboss.conf"
-        dest: "/etc/jboss/jboss.conf"
-        mode: 0644
+          - name: enable wildfly service
+            shell: systemctl enable wildfly
 
-
-    - name: Start jboss
-      service: name=jboss state=restarted enabled=yes
-      
-#    - name: Reboot the box if kernel updated
-#      reboot:
-#        msg: "Reboot initiated by Ansible for kernel updates"
-#        connect_timeout: 5
-#        reboot_timeout: 300
-#        pre_reboot_delay: 0
-#        post_reboot_delay: 30
-#        test_command: uptime
-#      when: reboot_required_file.stat.exists
-      
+          - name: Test for running Wildfly
+            shell: ps axuf | grep 'wildfly' | grep -v "grep" | tr -d "\n" | cat
+            register: test_running_wildfly
+            changed_when: False
+            tags: restart-wildfly
+  handlers:
+          - name: Reload Wildfly
+            service: name=wildfly state=reloaded enabled=true
+            when: test_running_wildfly.stdout != ""
+            tags: restart-wildfly
+          
+          - name: Restart Wildfly
+            service: name=wildfly state=restarted enabled=true
+            when: test_running_wildfly.stdout != ""
+            tags: restart-wildfly

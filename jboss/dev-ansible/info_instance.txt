@@ -1,0 +1,4 @@
+Instance name: 
+Public ip: 
+Private dns: 
+Zone: 
