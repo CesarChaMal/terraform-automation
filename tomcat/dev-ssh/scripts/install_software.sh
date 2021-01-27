@@ -31,3 +31,5 @@ ufw allow 8080/tcp
 systemctl daemon-reload
 systemctl enable tomcat
 systemctl start tomcat
+#systemctl status tomcat
+

@@ -28,10 +28,11 @@ cp /tmp/conf/wildfly.service /etc/systemd/system/wildfly.service
 chown wildfly: /opt/wildfly/bin/launch.sh
 #sh -c 'chmod +x /opt/wildfly/latest/bin/*.sh'
 sh -c 'chmod +x /opt/wildfly/bin/*.sh'
-chmod +x /opt/wildfly/bin/launch.sh
+#chmod +x /opt/wildfly/bin/launch.sh
 
 ufw allow 8080/tcp
 systemctl daemon-reload
 systemctl enable wildfly
 systemctl start wildfly
+#systemctl status wildfly
 

@@ -14,7 +14,7 @@ apt-get install -y nginx
 
 mkdir -p /var/www/localhost
 chmod -c 0755 /var/www/localhost
-cp /var/www/html/index.html /var/www/localhost/index.html
+cp /var/www/html/index.nginx-debian.html /var/www/localhost/index.html
 #cp /tmp/conf/index.html /var/www/localhost/index.html
 
 cp /tmp/conf/nginx.conf /etc/nginx/nginx.conf
@@ -27,7 +27,8 @@ grep -rinl 'listen 80 default_server;' /etc/nginx/sites-available/default | xarg
 grep -rinl 'listen \[::\]:80 default_server;' /etc/nginx/sites-available/default | xargs sed -i 's/listen \[::\]:80 default_server;/listen \[::\]:80;/g'
 ln -s /etc/nginx/sites-available/localhost /etc/nginx/sites-enabled/localhost
 
-systemctl reload nginx
+#systemctl reload nginx
 systemctl daemon-reload
 systemctl enable nginx
 systemctl start nginx
+#systemctl status nginx

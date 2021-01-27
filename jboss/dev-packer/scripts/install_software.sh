@@ -33,4 +33,5 @@ ufw allow 8080/tcp
 systemctl daemon-reload
 systemctl enable wildfly
 systemctl start wildfly
+#systemctl status wildfly
 

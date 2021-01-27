@@ -20,7 +20,8 @@ grep -rinl 'listen 80 default_server;' /etc/nginx/sites-available/default | xarg
 grep -rinl 'listen \[::\]:80 default_server;' /etc/nginx/sites-available/default | xargs sed -i 's/listen \[::\]:80 default_server;/listen \[::\]:80;/g'
 ln -s /etc/nginx/sites-available/localhost /etc/nginx/sites-enabled/localhost
 
-systemctl reload nginx
+#systemctl reload nginx
 systemctl daemon-reload
 systemctl enable nginx
 systemctl start nginx
+#systemctl status nginx
