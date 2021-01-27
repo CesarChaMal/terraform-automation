@@ -13,10 +13,10 @@ apt-get install -y default-jdk
 mkdir -p /opt/tomcat
 groupadd tomcat
 useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
-wget http://apache.mirror.digitalpacific.com.au/tomcat/tomcat-8/v8.5.56/bin/apache-tomcat-8.5.56.tar.gz
-tar -xzvf apache-tomcat-8.5.56.tar.gz
-rm -f apache-tomcat-8.5.56.tar.gz
-mv apache-tomcat-8.5.56/* /opt/tomcat
+wget http://apache.mirror.digitalpacific.com.au/tomcat/tomcat-8/v8.5.61/bin/apache-tomcat-8.5.61.tar.gz
+tar -xzvf apache-tomcat-8.5.61.tar.gz
+rm -f apache-tomcat-8.5.61.tar.gz
+mv apache-tomcat-8.5.61/* /opt/tomcat
 ln -s /opt/tomcat /opt/tomcat/latest
 chown -R tomcat /opt/tomcat
 chgrp -R tomcat /opt/tomcat
